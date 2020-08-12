@@ -1,1 +1,30 @@
-<p>todo-list works!</p>
+<div class="mt-2"></div>
+<div>
+    <mat-form-field class="col-sm-6">
+        <input matInput #input placeholder="What needs to be done?">
+    </mat-form-field>
+    <!-- <ng-container *ngIf="(todos$ | async) as todos"> -->
+    <ng-container *ngIf="todos">
+
+        <mat-list #todosList class="col-sm-6">
+            <mat-list-item *ngFor="let todo of todos; index as i" (mouseover)="setIndex(i)" (mouseleave)="removeIndex(i)"
+                [class.mat-elevation-z1]="selectedRow!=i" [class.mat-elevation-z8]="selectedRow==i">
+                    <span class="col-sm-2">
+                        <mat-checkbox  [checked]="todo.finished" (change)="toggleFinished(todo)">
+                        </mat-checkbox>
+                    </span>
+                    <span [class.finished]="todo.finished" class="col-sm-8">
+                        {{todo.todoDescription}}
+                    </span>
+                    <button mat-icon-button color="primary" class="col-sm-2" *ngIf="selectedRow==i" (click)="removeTodo(todo)">
+                        <mat-icon>close</mat-icon>
+                    </button>
+            </mat-list-item>
+        </mat-list>
+    </ng-container>
+</div>
+
+
+<p>
+    <!-- Options selected: {{todosList.selectedOptions.selected.length}} -->
+</p>

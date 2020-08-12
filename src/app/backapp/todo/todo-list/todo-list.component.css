@@ -1,0 +1,17 @@
+
+  .finished{
+    text-decoration: line-through; 
+  }
+  /* mat-list{
+      border: 2px dashed red;
+  } */
+
+  mat-list-item mat-line{
+      border: 4px solid blue;
+      text-overflow: ellipsis;
+    white-space: wrap
+  }
+
+  /* mat-form-field{
+    border: 4px solid green;
+  } */
