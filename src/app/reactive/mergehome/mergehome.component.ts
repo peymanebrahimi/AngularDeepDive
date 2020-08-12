@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { interval, merge } from 'rxjs';
+import { interval, merge, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -8,6 +8,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./mergehome.component.css']
 })
 export class MergehomeComponent implements OnInit {
+  sub: Subscription;
 
   constructor() { }
 
@@ -18,10 +19,10 @@ export class MergehomeComponent implements OnInit {
 
     const result$ = merge(series1$, series2$);
 
-    result$.subscribe(console.log);
+    this.sub = result$.subscribe(console.log);
   }
 
-  code =`
+  code = `
   const series1$ = interval(1000).pipe(map(val => val * 10));
 
   const series2$ = interval(1000).pipe(map(val => val * 100));
@@ -30,4 +31,9 @@ export class MergehomeComponent implements OnInit {
 
   result$.subscribe(console.log);
   `;
+
+  ngOnDestroy(): void {
+    this.sub?.unsubscribe();
+  }
+
 }
