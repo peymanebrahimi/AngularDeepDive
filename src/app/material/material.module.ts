@@ -34,6 +34,10 @@ import { MatStepperModule } from "@angular/material/stepper";
 import { MatTableModule } from "@angular/material/table";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatTreeModule } from "@angular/material/tree";
+import { LayoutModule } from '@angular/cdk/layout';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { PlatformModule } from '@angular/cdk/platform';
+
 
 const MaterialComponents = [
   MatSliderModule,
@@ -72,6 +76,9 @@ const MaterialComponents = [
   MatTableModule,
   MatTooltipModule,
   MatTreeModule,
+  LayoutModule,
+  DragDropModule,
+  PlatformModule,
 
 ];
 
