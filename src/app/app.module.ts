@@ -7,11 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MaterialModule } from "./material/material.module";
 import { HttpClientModule } from '@angular/common/http';
+import { HealthCheckComponent } from './health-check/health-check.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    HealthCheckComponent
   ],
   imports: [
     BrowserModule,

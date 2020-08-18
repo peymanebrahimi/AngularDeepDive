@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HealthCheckComponent } from './health-check/health-check.component';
 
 const routes: Routes = [
+  { path: 'health-check', component: HealthCheckComponent },
   {
     path: 'ContentProjection',
     loadChildren: () => import('./content-projection/content-projection.module').then(x => x.ContentProjectionModule)
