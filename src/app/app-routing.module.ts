@@ -19,6 +19,10 @@ const routes: Routes = [
   {
     path: 'backapp',
     loadChildren: () => import('./backapp/backapp.module').then(x => x.BackappModule)
+  },
+  {
+    path: 'worldcity',
+    loadChildren: () => import('./worldcity/worldcity.module').then(x => x.WorldcityModule)
   }
 ];
 
