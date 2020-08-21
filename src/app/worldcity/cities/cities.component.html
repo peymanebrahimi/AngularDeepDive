@@ -2,27 +2,29 @@
 
 <p *ngIf="!cities"><em>Loading...</em></p>
 
-<mat-table [dataSource]="cities" class="mat-elevation-z8" [hidden]="!cities">
+<mat-table [dataSource]="cities" class="mat-elevation-z8" [hidden]="!cities" matSort (matSortChange)="loadData()"
+    matSortActive="{{defaultSortColumn}}" matSortDirection="{{defaultSortOrder}}">
+    
     <!-- Id Column -->
     <ng-container matColumnDef="id">
-        <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
         <mat-cell *matCellDef="let city">{{city.id}}</mat-cell>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
         <mat-cell *matCellDef="let city">{{city.name}}</mat-cell>
     </ng-container>
 
     <!-- Lat Column -->
     <ng-container matColumnDef="lat">
-        <mat-header-cell *matHeaderCellDef>Latitude</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Latitude</mat-header-cell>
         <mat-cell *matCellDef="let city">{{city.lat}}</mat-cell>
     </ng-container>
     <!-- Lon Column -->
     <ng-container matColumnDef="lon">
-        <mat-header-cell *matHeaderCellDef>Longitude</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Longitude</mat-header-cell>
         <mat-cell *matCellDef="let city">{{city.lon}}</mat-cell>
     </ng-container>
 
@@ -30,9 +32,8 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
 
-<mat-paginator [pageSize]="10" [pageSizeOptions]="[10, 20, 50]" 
-(page)="getData($event)"
-showFirstLastButtons></mat-paginator>
+<mat-paginator [pageSize]="10" [pageSizeOptions]="[10, 20, 50]" (page)="getData($event)" showFirstLastButtons>
+</mat-paginator>
 
 <!-- the hidden attribute is an HTML5-valid content attribute that can
 be legitimately set on any HTML element. The role it's supposed to play is very
