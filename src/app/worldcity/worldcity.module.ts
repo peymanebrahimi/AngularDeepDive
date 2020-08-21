@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { WorldcityRoutingModule } from './worldcity-routing.module';
 import { CitiesComponent } from './cities/cities.component';
-import { CitieshomeComponent } from './citieshome/citieshome.component';
 import { MaterialModule } from '../material/material.module';
+import { WorldhomeComponent } from './worldhome/worldhome.component';
+import { CountriesComponent } from './countries/countries.component';
 
 
 @NgModule({
-  declarations: [CitiesComponent, CitieshomeComponent],
+  declarations: [CitiesComponent, WorldhomeComponent, CountriesComponent],
   imports: [
     CommonModule,
     MaterialModule,

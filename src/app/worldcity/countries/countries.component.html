@@ -1,35 +1,36 @@
-<p>Here's a list of cities: feel free to play with it.</p>
+<p>Here's a list of countries: feel free to play with it.</p>
 
-<p *ngIf="!cities"><em>Loading...</em></p>
+<p *ngIf="!countries"><em>Loading...</em></p>
 
-<mat-form-field [hidden]="!cities">
+<mat-form-field [hidden]="!countries">
     <input matInput (keyup)="loadData($event.target.value)" placeholder="Filter by name (or part of it)...">
 </mat-form-field>
 
-<mat-table [dataSource]="cities" class="mat-elevation-z8" [hidden]="!cities" matSort (matSortChange)="loadData()"
+<mat-table [dataSource]="countries" class="mat-elevation-z8" [hidden]="!countries" matSort (matSortChange)="loadData()"
     matSortActive="{{defaultSortColumn}}" matSortDirection="{{defaultSortOrder}}">
 
     <!-- Id Column -->
     <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
-        <mat-cell *matCellDef="let city">{{city.id}}</mat-cell>
+        <mat-cell *matCellDef="let country">{{country.id}}</mat-cell>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="name">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
-        <mat-cell *matCellDef="let city">{{city.name}}</mat-cell>
+        <mat-cell *matCellDef="let country">{{country.name}}</mat-cell>
     </ng-container>
 
-    <!-- Lat Column -->
-    <ng-container matColumnDef="lat">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Latitude</mat-header-cell>
-        <mat-cell *matCellDef="let city">{{city.lat}}</mat-cell>
+    <!-- iso2 Column -->
+    <ng-container matColumnDef="iso2">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>ISO2</mat-header-cell>
+        <mat-cell *matCellDef="let country">{{country.iso2}}</mat-cell>
     </ng-container>
-    <!-- Lon Column -->
-    <ng-container matColumnDef="lon">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Longitude</mat-header-cell>
-        <mat-cell *matCellDef="let city">{{city.lon}}</mat-cell>
+
+    <!-- iso3 Column -->
+    <ng-container matColumnDef="iso3">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>ISO3</mat-header-cell>
+        <mat-cell *matCellDef="let country">{{country.iso3}}</mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

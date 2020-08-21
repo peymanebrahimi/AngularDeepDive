@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CitieshomeComponent } from "./citieshome/citieshome.component";
 import { CitiesComponent } from './cities/cities.component';
+import { WorldhomeComponent } from './worldhome/worldhome.component';
+import { CountriesComponent } from './countries/countries.component';
 
 const routes: Routes = [
   {
-    path: '', component: CitieshomeComponent,
+    path: '', component: WorldhomeComponent,
     children: [
       { path: 'cities', component: CitiesComponent },
-      // {path:'countries', component: countri}
+      { path: 'countries', component: CountriesComponent },
     ]
   }
 ];

@@ -1,18 +1,19 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { City } from '../city';
 import { MatTableDataSource } from '@angular/material/table';
+import { Country } from "../country";
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Component({
-  selector: 'app-cities',
-  templateUrl: './cities.component.html',
-  styleUrls: ['./cities.component.css']
+  selector: 'app-countries',
+  templateUrl: './countries.component.html',
+  styleUrls: ['./countries.component.css']
 })
-export class CitiesComponent implements OnInit {
-  url = `${environment.apiUrl}/cities`;
+export class CountriesComponent implements OnInit {
+
+  url = `${environment.apiUrl}/countries`;
 
   defaultPageIndex: number = 0;
   defaultPageSize: number = 10;
@@ -21,13 +22,11 @@ export class CitiesComponent implements OnInit {
   defaultFilterColumn: string = "name";
   filterQuery: string = null;
 
-  // cities: MatTableDataSource<City>;
-  cities = new MatTableDataSource<City>();
+  countries = new MatTableDataSource<Country>();
 
-  displayedColumns: string[] = ['id', 'name', 'lat', 'lon'];
+  displayedColumns: string[] = ['id', 'name', 'iso2', 'iso3'];
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  // @ViewChild(MatPaginator) paginator: MatPaginator;
 
   @ViewChild(MatSort) sort: MatSort;
 
@@ -54,31 +53,22 @@ export class CitiesComponent implements OnInit {
       .set('sortColumn', this.sort ? this.sort.active : this.defaultSortColumn)
       .set('sortOrder', this.sort ? this.sort.direction : this.defaultSortOrder);
 
-      if (this.filterQuery) {
-        params = params
+    if (this.filterQuery) {
+      params = params
         .set("filterColumn", this.defaultFilterColumn)
         .set("filterQuery", this.filterQuery);
-        }
-        
+    }
+
     this.http.get<any>(this.url, { params })
       .subscribe(result => {
         this.paginator.length = result.totalCount;
         // this.paginator.pageIndex = result.pageIndex;
         // this.paginator.pageSize = result.pageSize;
 
-        this.cities.data = result.data;
+        this.countries.data = result.data;
 
       },
         error => console.error(error));
   }
 
 }
-
-/*
-So as a rule of thumb you can go for the following:
-
-{ static: true } needs to be set when you want to access the ViewChild in ngOnInit.
-
-{ static: false } can only be accessed in ngAfterViewInit.
-This is also what you want to go for when you have a structural directive (i.e. *ngIf) on your element in your template.
-*/
