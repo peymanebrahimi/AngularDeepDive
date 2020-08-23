@@ -1,0 +1,64 @@
+<div class="col-6">
+    <h1>{{title}}</h1>
+    <p *ngIf="id && !city"><em>loading ...</em></p>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <div *ngIf="form.invalid && form.errors?.isDupeCity" class="alert alert-danger">
+            <strong>ERROR</strong>:
+            A city with the same <i>name</i>, <i>lat</i>,
+            <i>lon</i> and <i>country</i> already exists.
+        </div>
+
+        <mat-form-field class="col-12">
+            <input matInput formControlName="name" placeholder="name">
+            <mat-error *ngIf="form.get('name').invalid &&
+            (form.get('name').dirty || form.get('name').touched)">
+                <div *ngIf="form.get('name').errors?.required">
+                    Name is required.
+                </div>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-12">
+            <input matInput formControlName="lat" placeholder="city latitude">
+            <mat-error *ngIf="form.get('lat').invalid &&
+            (form.get('lat').dirty || form.get('lat').touched)">
+                <div *ngIf="form.get('lat').errors?.required">
+                    Latitude is required.
+                </div>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-12">
+            <input matInput formControlName="lon" placeholder="city longitude">
+            <mat-error *ngIf="form.get('lon').invalid &&
+            (form.get('lon').dirty || form.get('lon').touched)">
+                <div *ngIf="form.get('lon').errors?.required">
+                    Longitude is required.
+                </div>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-12">
+            <mat-label>Country:</mat-label>
+            <mat-select formControlName="countryId">
+                <mat-option value="">--- Select a country ---</mat-option>
+                <mat-option *ngFor="let country of countries" [value]="country.id">
+                    {{country.name}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('countryId').invalid &&
+            (form.get('countryId').dirty || form.get('countryId').touched)">
+                <div *ngIf="form.get('countryId').errors?.required">
+                    Country is required.
+                </div>
+            </mat-error>
+        </mat-form-field>
+
+        <div class="my-2">
+            <button type="submit" class="mx-1 btn btn-success" mat-raised-button [disabled]="form.invalid">Save</button>
+            <button type="button" class="mx-1" mat-raised-button [routerLink]="['../cities']">Cancel</button>
+        </div>
+    </form>
+</div>
