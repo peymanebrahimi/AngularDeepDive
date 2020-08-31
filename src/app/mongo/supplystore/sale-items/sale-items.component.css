@@ -1,0 +1,20 @@
+/* table {
+    max-height: 300px;
+} */
+
+.totalRow td {
+    color      : red;
+    font-weight: bold;
+}
+
+th {
+    font-weight: bold;
+}
+
+.mat-row:nth-child(even) {
+    background-color: skyblue;
+}
+
+.mat-row:nth-child(odd) {
+    background-color: pink ;
+}

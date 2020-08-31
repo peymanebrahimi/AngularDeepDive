@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { HealthCheckComponent } from './health-check/health-check.component';
 
 const routes: Routes = [
@@ -23,6 +23,10 @@ const routes: Routes = [
   {
     path: 'worldcity',
     loadChildren: () => import('./worldcity/worldcity.module').then(x => x.WorldcityModule)
+  },
+  {
+    path: 'mongo',
+    loadChildren: () => import('./mongo/mongo.module').then(x => x.MongoModule)
   }
 ];
 
