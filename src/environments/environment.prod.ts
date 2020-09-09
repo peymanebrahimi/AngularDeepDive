@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-        // apiUrl: 'https://malceps.somee.com/api'
-    apiUrl: 'https://firstappab.herokuapp.com/api'
+    // serverUrl: 'https://malceps.somee.com'
+    serverUrl: 'https://firstappab.herokuapp.com'
 };

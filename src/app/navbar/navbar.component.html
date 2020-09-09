@@ -4,29 +4,37 @@
         <button mat-icon-button>
             <mat-icon>menu</mat-icon>
         </button>
-        <span routerLink="/">Angular Core Deep Dive</span>
+        <span>
+            <a mat-button disableRipple routerLink="/">Angular Core Deep Dive</a>
+        </span> 
     </div>
 
     <span class="example-spacer"></span>
-    
+
     <div *ngIf="!(isSmallScreen$ | async)">
 
-        <a mat-button routerLink="/mongo" routerLinkActive="active">mongo</a> 
-        <a mat-button routerLink="/backapp" routerLinkActive="active">backapp</a> 
-        <a mat-button routerLink="/ContentProjection" routerLinkActive="active">ContentProjection</a> 
-        <a mat-button routerLink="/ngTemplate" routerLinkActive="active">NgTemplate</a> 
-        <a mat-button routerLink="/reactive" routerLinkActive="active">Rxjs 6</a> 
-        <a mat-button routerLink="/worldcity" routerLinkActive="active">World City</a> 
-        <a mat-button routerLink="/health-check" routerLinkActive="active">Health Check</a> 
+        <a mat-button routerLink="/mongo" routerLinkActive="active">mongo</a>
+        <a mat-button [matMenuTriggerFor]="menu">backapp</a>
+        <a mat-button routerLink="/ContentProjection" routerLinkActive="active">ContentProjection</a>
+        <a mat-button routerLink="/ngTemplate" routerLinkActive="active">NgTemplate</a>
+        <a mat-button routerLink="/reactive" routerLinkActive="active">Rxjs 6</a>
+        <a mat-button routerLink="/worldcity" routerLinkActive="active">World City</a>
+        <a mat-button routerLink="/health-check" routerLinkActive="active">Health Check</a>
     </div>
-   
+
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/backapp/todo" routerLinkActive="active">ToDo</button>
+        <button mat-menu-item routerLink="/backapp/signalrchart" routerLinkActive="active">SignalR Chart</button>
+        <button mat-menu-item routerLink="/backapp/signalrnews" routerLinkActive="active">SignalR News</button>
+    </mat-menu>
+
     <span class="example-spacer"></span>
 
     <button mat-icon-button>
         <mat-icon>favorite</mat-icon>
     </button>
     <button mat-icon-button>
-        <mat-icon>share</mat-icon> 
+        <mat-icon>share</mat-icon>
     </button>
     <button mat-icon-button *ngIf="(isSmallScreen$ | async)">
         <mat-icon>more_vert</mat-icon>

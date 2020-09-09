@@ -1,0 +1,13 @@
+<div style="display: block" *ngIf='(signalRService.data$ | async) as data1'>
+    <canvas baseChart [datasets]="data1" [labels]="chartLabels" [options]="chartOptions" [legend]="chartLegend"
+        [chartType]="chartType" [colors]="colors" (chartClick)="chartClicked($event)"></canvas>
+</div>
+<br><br>
+<ul>
+    <li *ngFor='let data of signalRService.bradcastedData'>
+        <strong>Label: </strong> {{data.label}} - <strong>Value: </strong> {{data.data[0]}}
+    </li>
+</ul>
+<mat-divider></mat-divider>
+
+<button mat-stroked-button color="primary" (click)="listenToChartData()">Listen to chart data</button>

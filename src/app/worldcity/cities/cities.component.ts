@@ -12,7 +12,7 @@ import { MatSort } from '@angular/material/sort';
   styleUrls: ['./cities.component.css']
 })
 export class CitiesComponent implements OnInit {
-  url = `${environment.apiUrl}/cities`;
+  url = `${environment.serverUrl}/api/cities`;
 
   defaultPageIndex: number = 0;
   defaultPageSize: number = 10;

@@ -13,7 +13,7 @@ export class HealthCheckComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get<Result>(environment.apiUrl+"/hc").subscribe(result => {
+    this.http.get<Result>(environment.serverUrl+"/hc").subscribe(result => {
       this.result = result;
     }, error => console.error(error));
   }

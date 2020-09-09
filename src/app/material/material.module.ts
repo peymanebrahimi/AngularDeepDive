@@ -29,7 +29,7 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { MatSliderModule } from '@angular/material/slider';
-import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from "@angular/material/snack-bar";
 import { MatSortModule } from "@angular/material/sort";
 import { MatStepperModule } from "@angular/material/stepper";
 import { MatTableModule } from "@angular/material/table";
@@ -88,6 +88,15 @@ const MaterialComponents = [
   ],
   exports: [
     MaterialComponents
+  ],
+  providers: [
+    {
+      provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {
+        duration: 6000,
+        horizontalPosition: 'right', //center end left right start
+        verticalPosition: 'top', // top bottom
+      }
+    }
   ]
 })
 export class MaterialModule { }

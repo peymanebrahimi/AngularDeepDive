@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class SupplystoreService {
-  url = `${environment.apiUrl}/Sale`;
+  url = `${environment.serverUrl}/api/Sale`;
 
   constructor(private http: HttpClient) { }
 

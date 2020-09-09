@@ -13,7 +13,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 })
 export class CountriesComponent implements OnInit {
 
-  url = `${environment.apiUrl}/countries`;
+  url = `${environment.serverUrl}/api/countries`;
 
   defaultPageIndex: number = 0;
   defaultPageSize: number = 10;

@@ -14,7 +14,7 @@ import { CourseService } from '../course.service';
   styleUrls: ['./course-dialog.component.css']
 })
 export class CourseDialogComponent implements OnInit {
-  url = environment.apiUrl;
+  url = environment.serverUrl+'/api';
 
   form: FormGroup;
 

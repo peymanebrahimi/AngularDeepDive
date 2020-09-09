@@ -24,7 +24,7 @@ import { SupplystoreService } from "../supplystore.service";
 })
 export class SaleListComponent implements OnInit {
   private _onDestroy = new Subject<void>();
-  url = `${environment.apiUrl}/Sale`;
+  url = `${environment.serverUrl}/api/Sale`;
 
   defaultPageIndex: number = 0;
   defaultPageSize: number = 10;
