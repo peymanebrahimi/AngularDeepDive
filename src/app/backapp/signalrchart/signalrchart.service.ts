@@ -59,7 +59,7 @@ export class SignalrchartService {
 
   }
 
-  public addBroadcastChartDataListener = () => {
+  private addBroadcastChartDataListener = () => {
     this.hubConnection.on('broadcastchartdata', (data) => {
       this.chartSubject.next(data);
     })

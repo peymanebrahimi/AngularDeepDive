@@ -1,9 +1,80 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
+import * as signalR from "@aspnet/signalr";
+import { Store } from '@ngrx/store';
+import { NewsState } from './news.reducer';
+import * as NewsActions from './news.actions';
+import { NewsItem } from './news.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SignalrnewsService {
+  private hubConnection: signalR.HubConnection;
 
-  constructor() { }
+  constructor(private http: HttpClient,
+    private store: Store<NewsState>) {
+
+    this.hubConnection = new signalR.HubConnectionBuilder()
+      .withUrl(`${environment.serverUrl}/news`)
+      .configureLogging(signalR.LogLevel.Information)
+      .build();
+
+    this.connect();
+  }
+
+
+  private connect() {
+    this.hubConnection
+      .start()
+      .then(() => console.log('Connection started'))
+      .catch(err => console.log('Error while starting connection: ', err))
+
+    this.registerEvents();
+  }
+
+  registerEvents() {
+    this.hubConnection.on('JoinGroup', (data: string) => {
+      console.log('recieved data from the hub: ', data);
+      this.store.dispatch(NewsActions.receivedGroupJoinedAction({ group: data }));
+    });
+
+    this.hubConnection.on('LeaveGroup', (data: string) => {
+      this.store.dispatch(NewsActions.receivedGroupLeftAction({ group: data }));
+    });
+
+    this.hubConnection.on('History', (newsItems: NewsItem[]) => {
+      // console.log('recieved history from the hub');
+      // console.log(newsItems);
+      this.store.dispatch(NewsActions.receivedGroupHistoryAction({ newsItems }));
+    });
+    this.hubConnection.on('Send', (newsItem: NewsItem) => {
+      this.store.dispatch(NewsActions.receivedItemAction({ newsItem }));
+    });
+
+  }
+
+  joinGroup(group: string): void {
+    if (this.hubConnection) {
+      this.hubConnection.invoke('JoinGroup', group);
+    }
+  }
+
+  leaveGroup(group: string): void {
+    if (this.hubConnection) {
+      this.hubConnection.invoke('LeaveGroup', group);
+    }
+  }
+
+  getAllGroups() {
+    return this.http.get<string[]>(`${environment.serverUrl}/api/news`);
+  }
+
+  send(newsItem: NewsItem): NewsItem {
+    if (this.hubConnection) {
+      this.hubConnection.invoke('Send', newsItem);
+    }
+    return newsItem;
+  }
 }

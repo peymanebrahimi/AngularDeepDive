@@ -8,6 +8,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MaterialModule } from "./material/material.module";
 import { HttpClientModule } from '@angular/common/http';
 import { HealthCheckComponent } from './health-check/health-check.component';
+import { StoreModule } from "@ngrx/store";
+import { EffectsModule } from "@ngrx/effects";
+import { reducers, metaReducers } from "./reducers";
 
 @NgModule({
   declarations: [
@@ -21,6 +24,9 @@ import { HealthCheckComponent } from './health-check/health-check.component';
     HttpClientModule,
     MaterialModule,
     AppRoutingModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
+    EffectsModule.forRoot([]),
+
   ],
   providers: [],
   bootstrap: [AppComponent]
