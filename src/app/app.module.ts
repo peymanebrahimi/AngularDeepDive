@@ -11,6 +11,8 @@ import { HealthCheckComponent } from './health-check/health-check.component';
 import { StoreModule } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
 import { reducers, metaReducers } from "./reducers";
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { reducers, metaReducers } from "./reducers";
     AppRoutingModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([]),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
 
   ],
   providers: [],
