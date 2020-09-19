@@ -21,17 +21,21 @@ export class SignalrnewsService {
       .configureLogging(signalR.LogLevel.Information)
       .build();
 
+    this.registerEvents();
     this.connect();
   }
-
 
   private connect() {
     this.hubConnection
       .start()
       .then(() => console.log('Connection started'))
       .catch(err => console.log('Error while starting connection: ', err))
+  }
 
-    this.registerEvents();
+  public disconnect() {
+    this.hubConnection
+      .stop()
+      .catch(err => console.log('Error while stopping connection: ', err));
   }
 
   registerEvents() {

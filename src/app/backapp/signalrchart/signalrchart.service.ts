@@ -22,21 +22,21 @@ export class SignalrchartService {
       .withUrl(`${environment.serverUrl}/chart`)
       .build();
 
+    this.registerEvents();
+
     this.connect();
   }
 
-  private connect() {
+  public connect() {
     this.hubConnection
       .start()
       .then(() => console.log('Connection started'))
       .catch(err => console.log('Error while starting connection: ' + err))
 
-    this.registerEvents();
   }
 
-  public registerEvents = () => {
+  private registerEvents = () => {
     this.hubConnection.on('transferchartdata', (data) => {
-      console.info(data);
       this.chartSubject.next(data);
     });
 

@@ -39,6 +39,7 @@ export class SignalrchartComponent implements OnInit {
     // this.signalRService.addTransferChartDataListener();
     // this.signalRService.addBroadcastChartDataListener();
     this.startHttpRequest();
+    this.signalRService.connect();
   }
 
   private startHttpRequest = () => {
