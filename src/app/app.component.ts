@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { fromEvent, interval } from 'rxjs';
 import { map, take, concatAll } from 'rxjs/operators';
 import { environment } from "../environments/environment";
+import { PromptUpdateService } from "./prompt-update.service";
 
 @Component({
   selector: 'app-root',
@@ -11,8 +12,8 @@ import { environment } from "../environments/environment";
 export class AppComponent {
   title = 'AngDeepDive';
 
-  constructor() {
-   
+  constructor(private promptUpdateService: PromptUpdateService) {
+
   }
   ngOnInit() {
     // // https://rxjs-dev.firebaseapp.com/api/operators/concatAll

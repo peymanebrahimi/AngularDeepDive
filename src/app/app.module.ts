@@ -13,6 +13,7 @@ import { EffectsModule } from "@ngrx/effects";
 import { reducers, metaReducers } from "./reducers";
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { environment } from '../environments/environment';
     HealthCheckComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
@@ -29,6 +30,7 @@ import { environment } from '../environments/environment';
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([]),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    RouterModule,
 
   ],
   providers: [],
