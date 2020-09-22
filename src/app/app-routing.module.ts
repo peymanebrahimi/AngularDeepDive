@@ -27,7 +27,8 @@ const routes: Routes = [
   {
     path: 'mongo',
     loadChildren: () => import('./mongo/mongo.module').then(x => x.MongoModule)
-  }
+  },
+  { path: "**", redirectTo: "", pathMatch: "full" }
 ];
 
 @NgModule({

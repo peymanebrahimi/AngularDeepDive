@@ -1,17 +1,18 @@
 <mat-toolbar color="primary">
     <div>
 
-        <button mat-icon-button>
+        <button mat-icon-button (click)="onToggleSidenav()">
             <mat-icon>menu</mat-icon>
         </button>
-        <span>
-            <a mat-button disableRipple routerLink="/">Angular Deep Dive</a>
-        </span> 
+        <span style="cursor: pointer" [routerLink]="['/']"> Angular Deep Dive
+            <!-- <a mat-button disableRipple routerLink="/">Angular Deep Dive</a> -->
+        </span>
     </div>
 
     <span class="example-spacer"></span>
 
-    <div *ngIf="!(isSmallScreen$ | async)">
+    <!-- *ngIf="!(isSmallScreen$ | async)" -->
+    <div *ngIf="!isSmallDevice">
 
         <a mat-button routerLink="/mongo" routerLinkActive="active">mongo</a>
         <a mat-button [matMenuTriggerFor]="menu">backapp</a>
@@ -36,7 +37,7 @@
     <button mat-icon-button>
         <mat-icon>share</mat-icon>
     </button>
-    <button mat-icon-button *ngIf="(isSmallScreen$ | async)">
+    <!-- <button mat-icon-button *ngIf="(isSmallScreen$ | async)">
         <mat-icon>more_vert</mat-icon>
-    </button>
+    </button> -->
 </mat-toolbar>

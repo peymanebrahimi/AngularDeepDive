@@ -14,12 +14,14 @@ import { reducers, metaReducers } from "./reducers";
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { RouterModule } from '@angular/router';
+import { NavsideComponent } from './navside/navside.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    HealthCheckComponent
+    HealthCheckComponent,
+    NavsideComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -29,7 +31,8 @@ import { RouterModule } from '@angular/router';
     AppRoutingModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([]),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: true }),
     RouterModule,
 
   ],

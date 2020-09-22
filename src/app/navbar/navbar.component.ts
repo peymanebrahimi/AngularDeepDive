@@ -1,4 +1,4 @@
-import { Component, OnInit, VERSION as angularVersion } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, VERSION as angularVersion } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
@@ -17,6 +17,12 @@ export class NavbarComponent implements OnInit {
 
   isSmallScreen$: Observable<boolean>;
 
+  @Output()
+  sidenavToggle = new EventEmitter<void>();
+
+  @Input()
+  isSmallDevice = false;
+
   constructor(private breakpointObserver: BreakpointObserver) {
 
     this.isSmallScreen$ = breakpointObserver.observe([Breakpoints.HandsetLandscape, Breakpoints.HandsetPortrait,])
@@ -29,14 +35,15 @@ export class NavbarComponent implements OnInit {
     let isPortrait: Observable<BreakpointState> = this.breakpointObserver.observe('(orientation: portrait)');
     let isLandscape: Observable<BreakpointState> = this.breakpointObserver.observe('(orientation: landscape)');
 
+    const isSmallScreen = this.breakpointObserver.isMatched('(max-width: 599px)');
+    const isMobile = this.breakpointObserver.isMatched('(max-width: 767px)');
   }
 
   ngOnInit(): void {
   }
 
-  activateSomething() {
-    const isSmallScreen = this.breakpointObserver.isMatched('(max-width: 599px)');
-    const isMobile = this.breakpointObserver.isMatched('(max-width: 767px)');
+  onToggleSidenav() {
+    this.sidenavToggle.emit();
   }
 
 }

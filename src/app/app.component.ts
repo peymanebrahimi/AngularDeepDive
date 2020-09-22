@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
-import { fromEvent, interval } from 'rxjs';
-import { map, take, concatAll } from 'rxjs/operators';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Component, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
+import { NavigationStart, NavigationEnd, NavigationCancel, NavigationError, Router, Event } from '@angular/router';
+import { fromEvent, interval, Observable, Subject } from 'rxjs';
+import { map, take, concatAll, takeUntil } from 'rxjs/operators';
 import { environment } from "../environments/environment";
 import { PromptUpdateService } from "./prompt-update.service";
 
@@ -11,10 +14,30 @@ import { PromptUpdateService } from "./prompt-update.service";
 })
 export class AppComponent {
   title = 'AngDeepDive';
+  loading$: Observable<boolean>;
+  isSmallDevice = false;
 
-  constructor(private promptUpdateService: PromptUpdateService) {
+  @ViewChild(MatSidenav, { static: false })
+  sidenav: MatSidenav;
+  
+  private _onDestroy = new Subject<void>();
 
+  constructor(private promptUpdateService: PromptUpdateService,
+    private router: Router,
+    private breakpointObserver: BreakpointObserver) {
+
+    this.breakpointObserver
+      .observe([Breakpoints.Handset])
+      .pipe(takeUntil(this._onDestroy))
+      .subscribe(result => {
+        if (result.matches) {
+          this.isSmallDevice = true;
+        } else {
+          this.isSmallDevice = false;
+        }
+      });
   }
+
   ngOnInit() {
     // // https://rxjs-dev.firebaseapp.com/api/operators/concatAll
     // const clicks = fromEvent(document, 'click');
@@ -23,7 +46,36 @@ export class AppComponent {
     // );
     // const firstOrder = higherOrder.pipe(concatAll());
     // firstOrder.subscribe(x => console.log(x));
+
+
+    this.router.events
+      .pipe(takeUntil(this._onDestroy))
+      .subscribe((routerEvent: Event) => {
+        if (this.isSmallDevice) {
+          this.sidenav.close();
+        }
+        this.checkRouterEvent(routerEvent);
+      });
   }
 
+  ngOnDestroy() {
+    this._onDestroy.next();
+    this._onDestroy.complete();
+  }
+
+  checkRouterEvent(routerEvent: Event): void {
+    if (routerEvent instanceof NavigationStart) {
+      // this.loading = true;
+      // this.spinnerSvc.show('mySpinner');
+    }
+    if (
+      routerEvent instanceof NavigationEnd ||
+      routerEvent instanceof NavigationCancel ||
+      routerEvent instanceof NavigationError
+    ) {
+      // this.loading = false;
+      // this.spinnerSvc.hide('mySpinner');
+    }
+  }
 
 }
