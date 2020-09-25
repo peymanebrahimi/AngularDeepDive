@@ -18,7 +18,7 @@ export class SignalrnewsService {
 
     this.hubConnection = new signalR.HubConnectionBuilder()
       .withUrl(`${environment.serverUrl}/news`)
-      .configureLogging(signalR.LogLevel.Information)
+      .configureLogging(environment.production ? signalR.LogLevel.None : signalR.LogLevel.Information)
       .build();
 
     this.registerEvents();

@@ -20,6 +20,7 @@ export class SignalrchartService {
   constructor(private snackBar: MatSnackBar) {
     this.hubConnection = new signalR.HubConnectionBuilder()
       .withUrl(`${environment.serverUrl}/chart`)
+      .configureLogging(environment.production ? signalR.LogLevel.None : signalR.LogLevel.Information)
       .build();
 
     this.registerEvents();

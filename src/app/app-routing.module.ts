@@ -28,6 +28,10 @@ const routes: Routes = [
     path: 'mongo',
     loadChildren: () => import('./mongo/mongo.module').then(x => x.MongoModule)
   },
+  {
+    path: 'testing',
+    loadChildren: () => import('./testing/testing.module').then(x => x.TestingModule)
+  },
   { path: "**", redirectTo: "", pathMatch: "full" }
 ];
 

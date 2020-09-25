@@ -1,11 +1,12 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { NavigationStart, NavigationEnd, NavigationCancel, NavigationError, Router, Event } from '@angular/router';
 import { fromEvent, interval, Observable, Subject } from 'rxjs';
 import { map, take, concatAll, takeUntil } from 'rxjs/operators';
 import { environment } from "../environments/environment";
-import { PromptUpdateService } from "./prompt-update.service";
+import { PromptUpdateService } from "./_services/prompt-update.service";
 
 @Component({
   selector: 'app-root',
@@ -19,11 +20,13 @@ export class AppComponent {
 
   @ViewChild(MatSidenav, { static: false })
   sidenav: MatSidenav;
-  
+
   private _onDestroy = new Subject<void>();
 
   constructor(private promptUpdateService: PromptUpdateService,
+    // private authService: AuthService,
     private router: Router,
+
     private breakpointObserver: BreakpointObserver) {
 
     this.breakpointObserver
@@ -56,7 +59,10 @@ export class AppComponent {
         }
         this.checkRouterEvent(routerEvent);
       });
+
   }
+
+
 
   ngOnDestroy() {
     this._onDestroy.next();

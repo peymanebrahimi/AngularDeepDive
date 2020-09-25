@@ -22,7 +22,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.webmanifest"
+              "src/manifest.webmanifest",
+              "src/silent-renew.html"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
