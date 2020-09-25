@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1601000602894,
+  "timestamp": 1601001147961,
   "index": "https://peymanebrahimi.github.io/AngularDeepDive/index.html",
   "assetGroups": [
     {
@@ -26,7 +26,7 @@
         "https://peymanebrahimi.github.io/AngularDeepDive/9.134d78d31d90d4b3de40.js",
         "https://peymanebrahimi.github.io/AngularDeepDive/favicon.ico",
         "https://peymanebrahimi.github.io/AngularDeepDive/index.html",
-        "https://peymanebrahimi.github.io/AngularDeepDive/main.bb8b8b7588d068b06eb3.js",
+        "https://peymanebrahimi.github.io/AngularDeepDive/main.f0ffbe36f785253dcc08.js",
         "https://peymanebrahimi.github.io/AngularDeepDive/manifest.webmanifest",
         "https://peymanebrahimi.github.io/AngularDeepDive/polyfills.3f1cac8d68247719589a.js",
         "https://peymanebrahimi.github.io/AngularDeepDive/runtime.c95f8db0901e2121fbac.js",
@@ -87,8 +87,8 @@
     "https://peymanebrahimi.github.io/AngularDeepDive/assets/logo.png": "546822b6c6595edcfe216d38ed874f3fc11f6bc4",
     "https://peymanebrahimi.github.io/AngularDeepDive/assets/user.png": "f8e897fbf6ccda288d7982d9e85b6399d88cc91f",
     "https://peymanebrahimi.github.io/AngularDeepDive/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://peymanebrahimi.github.io/AngularDeepDive/index.html": "860db3c249706a7e78e1edb90a7e7ff77e17611d",
-    "https://peymanebrahimi.github.io/AngularDeepDive/main.bb8b8b7588d068b06eb3.js": "bcfe04d822a17af395030657bf2c85cb6e500a57",
+    "https://peymanebrahimi.github.io/AngularDeepDive/index.html": "fda328adfd663f9d92fe1d4611470f24044b0837",
+    "https://peymanebrahimi.github.io/AngularDeepDive/main.f0ffbe36f785253dcc08.js": "bcd6ec60235772608e1727dd653a3a302a065362",
     "https://peymanebrahimi.github.io/AngularDeepDive/manifest.webmanifest": "4a3863d647f0578051700f4544ade06b4e6c5008",
     "https://peymanebrahimi.github.io/AngularDeepDive/polyfills.3f1cac8d68247719589a.js": "a4b07f7f5ab86ac4339b1c289ec189e0b0b893c5",
     "https://peymanebrahimi.github.io/AngularDeepDive/runtime.c95f8db0901e2121fbac.js": "a555c3db97daea36825efce7487db74fb50e10a1",
