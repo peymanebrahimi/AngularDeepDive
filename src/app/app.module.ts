@@ -31,8 +31,8 @@ export function configureAuth(oidcConfigService: OidcConfigService) {
       responseType: 'code',
       silentRenew: true,
       silentRenewUrl: `${environment.appUrl}/silent-renew.html`,
-      // logLevel: environment.production ? LogLevel.None : LogLevel.Warn,
-      logLevel: LogLevel.Debug,
+      logLevel: environment.production ? LogLevel.None : LogLevel.Warn,
+      // logLevel: LogLevel.Debug,
     });
 }
 

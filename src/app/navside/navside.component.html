@@ -6,7 +6,12 @@
   <a mat-list-item [routerLink]="['/reactive']"><span>Rxjs 6</span></a>
   <a mat-list-item [routerLink]="['/worldcity']"><span>World City</span></a>
   <a mat-list-item [routerLink]="['/health-check']"><span>Health Check</span></a>
-  <a mat-list-item (click)="login()"><span>Login</span></a>
+
+  <ng-container *ngIf="!(authService.isAuthenticated$ | async)"> 
+
+    <a mat-list-item (click)="login()"><span>Login</span></a>
+
+  </ng-container>
 
   <ng-container *ngIf="(authService.isAuthenticated$ | async)">
 
