@@ -1,88 +1,87 @@
 <div>
     <div class="row">
-        <div class="col">
-            <mat-form-field>
-                <mat-label>Group</mat-label>
-                <mat-select [(ngModel)]="group">
-                    <mat-option [value]="value" *ngFor="let value of (groups$ | async ) as groups">{{ value }}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
+        <!-- <div class="col-sm-9">
+        </div> -->
+        <mat-form-field class="col-sm-9 col-md-4">
+            <mat-label>Group</mat-label>
+            <mat-select [(ngModel)]="group">
+                <mat-option [value]="value" *ngFor="let value of (groups$ | async ) as groups">{{ value }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
 
-        <div class="col">
+        <!-- <div class="col">
             <mat-form-field>
                 <input matInput placeholder="Author" [(ngModel)]="author" required>
             </mat-form-field>
-        </div>
+        </div> -->
 
-        <div class="col">
-            <div class="col-sm-9">
-                <button class="btn btn-primary col-sm-12 mb-2" (click)="joinGroup()">Join</button>
-                <button class="btn btn-primary col-sm-12" (click)="leaveGroup()">Leave</button>
-            </div>
-        </div>
+        <!-- <div class="col-sm-9">
+        </div> -->
+        <button class="btn btn-success col-sm-9 col-md-2 m-auto" (click)="joinGroup()">Join</button>
+        <button class="btn btn-danger col-sm-9 col-md-2 m-auto" (click)="leaveGroup()">Leave</button>
+
     </div>
 </div>
+
+<br />
 <mat-divider></mat-divider>
+<br />
 
 <form class="form-horizontal" style="padding: 10px 0;" (ngSubmit)="sendNewsItemToGroup()" #newsItemForm="ngForm">
     <div class="row">
-        <div class="col">
-            <label for="header" class="col-sm-2 control-label">Header</label>
-            <div class="col-sm-9">
-                <input type="text" class="form-control" id="header" placeholder="your header..." name="header"
-                    [(ngModel)]="newsItem.header" required>
-            </div>
-        </div>
-        <div class="col">
-            <label for="newsText" class="col-sm-2 control-label">Text</label>
-            <div class="col-sm-9">
-                <input type="text" class="form-control" id="newsText" placeholder="your newsText..." name="newsText"
-                    [(ngModel)]="newsItem.newsText" required>
-            </div>
-        </div>
-        <div class="col">
-            <label for="newsText" class="col-sm-2 control-label"></label>
-            <div class="col-sm-9">
-                <button type="submit" class="btn btn-primary col-sm-12" [disabled]="!newsItemForm.valid">Send News to:
-                    {{group}}</button>
-            </div>
-        </div>
+        <mat-form-field class="col-sm-9 col-md-4">
+            <input matInput type="text" name="header" placeholder="your header..." [(ngModel)]="newsItem.header"
+                required>
+        </mat-form-field>
+
+        <mat-form-field class="col-sm-9 col-md-4">
+            <input matInput type="text" name="newsText" placeholder="your newsText..." [(ngModel)]="newsItem.newsText"
+                required>
+        </mat-form-field>
+
+
+        <button type="submit" mat-raised-button class="col-sm-9 col-md-2" [disabled]="!newsItemForm.valid">
+            Send News to: {{group}}
+        </button>
+
     </div>
 </form>
-<br/>
-<br/>
+<br />
+<br />
 <mat-divider></mat-divider>
-<br/>
+<br />
 
 <ng-container *ngIf="(newsItems$ | async) as data">
-    <div class="row">
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>header</th>
-                        <th>Text</th>
-                        <th>Author</th>
-                        <th>Group</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let item of data; let i = index">
-                        <td>{{i + 1}}</td>
-                        <td>{{item.header}}</td>
-                        <td>{{item.newsText}}</td>
-                        <td>{{item.author}}</td>
-                        <td>{{item.newsGroup}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+    <ng-container *ngIf="data.length">
 
-    <div class="row" *ngIf="data?.length <= 0">
+        <div class="row">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>header</th>
+                            <th>Text</th>
+                            <th>Author</th>
+                            <th>Group</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of data; let i = index">
+                            <td>{{i + 1}}</td>
+                            <td>{{item.header}}</td>
+                            <td>{{item.newsText}}</td>
+                            <td>{{item.author}}</td>
+                            <td>{{item.newsGroup}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </ng-container>
+
+    <div class="row" *ngIf="data?.length == 0">
         <span>No news items</span>
     </div>
 </ng-container>

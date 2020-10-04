@@ -6,6 +6,7 @@ import { Store } from '@ngrx/store';
 import { NewsState } from './news.reducer';
 import * as NewsActions from './news.actions';
 import { NewsItem } from './news.model';
+import { AuthService } from 'src/app/_services/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +15,11 @@ export class SignalrnewsService {
   private hubConnection: signalR.HubConnection;
 
   constructor(private http: HttpClient,
+    private authService:AuthService,
     private store: Store<NewsState>) {
 
     this.hubConnection = new signalR.HubConnectionBuilder()
-      .withUrl(`${environment.serverUrl}/news`)
+      .withUrl(`${environment.serverUrl}/news`, { accessTokenFactory: () => this.authService.token })
       .configureLogging(environment.production ? signalR.LogLevel.None : signalR.LogLevel.Information)
       .build();
 

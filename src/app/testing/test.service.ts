@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class TestService {
     // };
 
     // return this.http.get("http://localhost:5000/api/test/GetUser", httpOptions);
-    return this.http.get("http://localhost:5000/api/test/GetUser");
+    return this.http.get(`${environment.serverUrl}/api/test/GetUser`);
   }
 
   getAuthModel() {
@@ -31,6 +32,6 @@ export class TestService {
     // };
 
     // return this.http.get("http://localhost:5000/api/test/GetAuth", httpOptions);
-    return this.http.get("http://localhost:5000/api/test/GetAuth");
+    return this.http.get(`${environment.serverUrl}/api/test/GetAuth`);
   }
 }

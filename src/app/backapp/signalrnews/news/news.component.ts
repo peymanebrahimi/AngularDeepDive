@@ -18,7 +18,7 @@ import { allNewsItemsSelect } from '../news.selectors';
 })
 export class NewsComponent implements OnInit {
   group = 'IT';
-  author = 'chrome';
+  author = '';
   newsItems$: Observable<NewsItem[]>;
   groups$: Observable<string[]>;
   newsItem: NewsItem;
@@ -27,6 +27,7 @@ export class NewsComponent implements OnInit {
   constructor(private store: Store<NewsState>,
     private snackBar: MatSnackBar,
     private route: ActivatedRoute) {
+      
     this.newsItem = new NewsItem('', '', this.author, this.group);
     // this.newsItem.id = Date.parse((new Date()).toString()); 
 
