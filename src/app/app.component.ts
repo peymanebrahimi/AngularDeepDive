@@ -7,6 +7,7 @@ import { fromEvent, interval, Observable, Subject } from 'rxjs';
 import { map, take, concatAll, takeUntil } from 'rxjs/operators';
 import { environment } from "../environments/environment";
 import { PromptUpdateService } from "./_services/prompt-update.service";
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -26,7 +27,7 @@ export class AppComponent {
   constructor(private promptUpdateService: PromptUpdateService,
     // private authService: AuthService,
     private router: Router,
-
+    private primengConfig: PrimeNGConfig,
     private breakpointObserver: BreakpointObserver) {
 
     this.breakpointObserver
@@ -59,6 +60,8 @@ export class AppComponent {
         }
         this.checkRouterEvent(routerEvent);
       });
+
+      // this.primengConfig.ripple = true;
 
   }
 

@@ -1,17 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
 
-$grid-breakpoints: (
-  xs: 0,
+$grid-breakpoints: (xs: 0,
   sm: 576px,
   md: 768px,
   lg: 992px,
-  xl: 1200px
-);
+  xl: 1200px);
 
-$link-hover-decoration: none;    // remove underline from button links
+$link-hover-decoration: none; // remove underline from button links
 
-$link-color: #3f51b5;            // set link color based on the used material theme
+$link-color      : #3f51b5; // set link color based on the used material theme
 $link-hover-color: currentColor;
 
 
@@ -22,6 +20,7 @@ $link-hover-color: currentColor;
 
 
 * {
+
   &:active,
   :focus {
     outline: none !important;
@@ -32,10 +31,21 @@ label {
   margin-bottom: 0;
 }
 
- @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// @import "node_modules/primeng/resources/themes/saga-blue/theme.css";
+@import "primeng/resources/themes/saga-blue/theme.css";
+// @import "node_modules/primeng/resources/primeng.min.css";
+@import "primeng/resources/primeng.min.css";
+// @import "node_modules/primeicons/primeicons.css";
+@import "primeicons/primeicons.css"; 
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin     : 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

@@ -30,7 +30,7 @@ export class SignalrnewsService {
         this.connect();
         return of(this.hubConnection)
       })
-    ).subscribe(x => console.log('ctor of SignalrnewsService'));
+    ).subscribe();
   }
 
   private connect() {
