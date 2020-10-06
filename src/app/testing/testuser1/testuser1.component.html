@@ -1,7 +1,7 @@
 <div *ngIf="authService.isAuthenticated$ | async as isAuthenticated; else noAuth">
    
     <button (click)="forceRefreshSession()">RefreshSession</button>
-    <button (click)="callApi()">Call Api</button>
+    <button (click)="callApi()">Get User</button>
     <hr />
 
     <br />

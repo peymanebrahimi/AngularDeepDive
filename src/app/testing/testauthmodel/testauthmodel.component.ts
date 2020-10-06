@@ -11,6 +11,8 @@ import { TestService } from "../test.service";
 export class TestauthmodelComponent implements OnInit {
   private _onDestroy = new Subject<void>();
   
+  authModel;
+
   constructor(private testService:TestService) { }
 
   ngOnInit(): void {
@@ -24,7 +26,7 @@ export class TestauthmodelComponent implements OnInit {
   callApi(){
     this.testService.getAuthModel()
     .pipe(takeUntil(this._onDestroy))
-    .subscribe(x => console.log(x));
+    .subscribe(x => this.authModel = x);
     
   }
 }
