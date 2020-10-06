@@ -1,19 +1,18 @@
-<div *ngIf="authService.isAuthenticated$ | async as isAuthenticated; else noAuth">
+<div *ngIf="isAuthenticated | async as authed; else noAuth">
    
-    <button (click)="forceRefreshSession()">RefreshSession</button>
-    <button (click)="callApi()">Get User</button>
+    <button (click)="callApi()">Get User from Api</button>
     <hr />
 
     <br />
 
-    Is Authenticated: {{ isAuthenticated }}
+    Is Authenticated: {{ authed }}
 
     <br />
     userData
-    <pre>{{ authService.userData$ | async | json }}</pre>
+    <pre>{{ authService.getUser() | async | json }}</pre>
 
     <br />
-</div>
+</div> 
 
 <ng-template #noAuth>
 
@@ -21,4 +20,4 @@
 </ng-template>
 
 Configuration loaded:
-<pre>{{ authService.configuration | json }}</pre>
+<!-- <pre>{{ authService.configuration | json }}</pre> -->

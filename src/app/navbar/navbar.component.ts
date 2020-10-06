@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { VERSION as materialVersion } from '@angular/material/core';
 import { VERSION as cdkVersion } from '@angular/cdk';
-import { AuthService } from '../_services/auth.service';
+import { AuthorizeService } from '../authorization/authorize.service';
 
 @Component({
   selector: 'app-navbar',
@@ -18,6 +18,10 @@ export class NavbarComponent implements OnInit {
 
   isSmallScreen$: Observable<boolean>;
 
+  public isAuthenticated: Observable<boolean>;
+  public userName: Observable<string>;
+
+
   @Output()
   sidenavToggle = new EventEmitter<void>();
 
@@ -25,7 +29,7 @@ export class NavbarComponent implements OnInit {
   isSmallDevice = false;
 
   constructor(private breakpointObserver: BreakpointObserver,
-    public auth: AuthService) {
+    public auth: AuthorizeService) {
 
     this.isSmallScreen$ = breakpointObserver.observe([Breakpoints.HandsetLandscape, Breakpoints.HandsetPortrait,])
       .pipe(map(x => x.matches),)
@@ -42,18 +46,12 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isAuthenticated = this.auth.isAuthenticated();
+    this.userName = this.auth.getUser().pipe(map(u => u && u.name));
   }
 
   onToggleSidenav() {
     this.sidenavToggle.emit();
-  }
-
-  login() {
-    this.auth.login();
-  }
-
-  logout() {
-    this.auth.logout();
   }
 
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../_services/auth.service';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { AuthorizeService } from '../authorization/authorize.service';
 
 @Component({
   selector: 'app-navside',
@@ -8,17 +10,16 @@ import { AuthService } from '../_services/auth.service';
 })
 export class NavsideComponent implements OnInit {
 
-  constructor(public authService: AuthService) { }
+  public isAuthenticated: Observable<boolean>;
+  public userName: Observable<string>;
+  
+  constructor(
+    public auth: AuthorizeService
+    ) { }
 
   ngOnInit(): void {
-  }
-
-  login() {
-    this.authService.login();
-  }
-
-  logout() {
-    this.authService.logout();
+    this.isAuthenticated = this.auth.isAuthenticated();
+    this.userName = this.auth.getUser().pipe(map(u => u && u.name));
   }
 
 }

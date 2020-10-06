@@ -1,40 +1,22 @@
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { APP_INITIALIZER, NgModule } from '@angular/core';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { EffectsModule } from "@ngrx/effects";
+import { StoreModule } from "@ngrx/store";
+import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavbarComponent } from './navbar/navbar.component';
-import { MaterialModule } from "./material/material.module";
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ApiAuthorizationModule } from "./authorization/api-authorization.module";
+import { AuthorizeInterceptor } from "./authorization/authorize.interceptor";
 import { HealthCheckComponent } from './health-check/health-check.component';
-import { StoreModule } from "@ngrx/store";
-import { EffectsModule } from "@ngrx/effects";
-import { reducers, metaReducers } from "./reducers";
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
-import { RouterModule } from '@angular/router';
+import { MaterialModule } from "./material/material.module";
+import { NavbarComponent } from './navbar/navbar.component';
 import { NavsideComponent } from './navside/navside.component';
-import { AuthInterceptor } from "./_services/auth-interceptor";
-import { AuthModule, EventTypes, LogLevel, OidcConfigService, PublicEventsService } from 'angular-auth-oidc-client';
-import { filter } from 'rxjs/operators';
+import { metaReducers, reducers } from "./reducers";
 
-export function configureAuth(oidcConfigService: OidcConfigService) {
-  return () =>
-    oidcConfigService.withConfig({
-      redirectUrl: environment.appUrl,
-      stsServer: environment.idsrvUrl,
-      authWellknownEndpoint: `${environment.idsrvUrl}/.well-known/openid-configuration`,
-      postLogoutRedirectUri: environment.appUrl,
-      clientId: 'angularClient',
-      scope: 'openid profile email angular.api',
-      responseType: 'code',
-      silentRenew: true,
-      silentRenewUrl: `${environment.appUrl}/silent-renew.html`,
-      logLevel: environment.production ? LogLevel.None : LogLevel.Warn,
-      // logLevel: LogLevel.Debug,
-    });
-}
 
 @NgModule({
   declarations: [
@@ -48,37 +30,23 @@ export function configureAuth(oidcConfigService: OidcConfigService) {
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
+    ApiAuthorizationModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([]),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    // ServiceWorkerModule.register('ngsw-worker.js', { enabled: true }),
     RouterModule,
-    AuthModule.forRoot(),
-
   ],
   providers: [
-    OidcConfigService,
-    {
-      provide: APP_INITIALIZER,
-      useFactory: configureAuth,
-      deps: [OidcConfigService],
-      multi: true,
-    },
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
+      useClass: AuthorizeInterceptor,
       multi: true,
     },
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(private readonly eventService: PublicEventsService) {
-    this.eventService
-      .registerForEvents()
-      .pipe(filter((notification) => notification.type === EventTypes.ConfigLoaded))
-      .subscribe((config) => console.log('ConfigLoaded: ', config));
-  }
+
 }
 
