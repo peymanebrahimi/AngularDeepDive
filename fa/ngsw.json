@@ -1,0 +1,116 @@
+{
+  "configVersion": 1,
+  "timestamp": 1602199821189,
+  "index": "/fa/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/fa/1.b46ad6759f9df8188b73.js",
+        "/fa/10.35c1a576ac16dca18bc6.js",
+        "/fa/11.7ccbda3d03379b7ad28f.js",
+        "/fa/12.f54d1be86008e53b8fcc.js",
+        "/fa/13.33948ccf95e520e3f219.js",
+        "/fa/14.40d8d5f3602afa1c8558.js",
+        "/fa/15.913cad986c11a750db8a.js",
+        "/fa/16.57e046702f6f372b126b.js",
+        "/fa/5.f65b5e8d62c40fa6be45.js",
+        "/fa/6.369366f873c71174df9f.js",
+        "/fa/7.f4a43d655091caa40557.js",
+        "/fa/8.69b1b770401b9ba4ec31.js",
+        "/fa/9.1b22714038bafcb358a5.js",
+        "/fa/favicon.ico",
+        "/fa/index.html",
+        "/fa/main.34ef77f77f67a85d5ec8.js",
+        "/fa/manifest.webmanifest",
+        "/fa/polyfills.bc81b60967a0367997af.js",
+        "/fa/runtime.a006f2ea8824fe7a33d9.js",
+        "/fa/scripts.8eab7bf9eb54559f7497.js",
+        "/fa/styles.c9b8498e3e120e1202b7.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/fa/assets/icons/Icon-ios-120.png",
+        "/fa/assets/icons/Icon-ios-180.png",
+        "/fa/assets/icons/icon-128x128.png",
+        "/fa/assets/icons/icon-144x144.png",
+        "/fa/assets/icons/icon-152x152.png",
+        "/fa/assets/icons/icon-192x192.png",
+        "/fa/assets/icons/icon-384x384.png",
+        "/fa/assets/icons/icon-512x512.png",
+        "/fa/assets/icons/icon-72x72.png",
+        "/fa/assets/icons/icon-96x96.png",
+        "/fa/assets/logo.png",
+        "/fa/assets/user.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/fa/1.b46ad6759f9df8188b73.js": "96ecc483e57c923cde000cebdddc1686e42b97a7",
+    "/fa/10.35c1a576ac16dca18bc6.js": "0c4c01bb945eb031313dbcd856efce60c8eee7b3",
+    "/fa/11.7ccbda3d03379b7ad28f.js": "55e168fd8e3d0de286e90c526368a10bc48afe31",
+    "/fa/12.f54d1be86008e53b8fcc.js": "1646fd3d599ab3befc4070fdc3c5fcd40ce7dbd5",
+    "/fa/13.33948ccf95e520e3f219.js": "2dbf2d1be35bb37488e7fee5c261a3551020dc4e",
+    "/fa/14.40d8d5f3602afa1c8558.js": "11721de6d903f5d4cf5a7207d78b8029dda90826",
+    "/fa/15.913cad986c11a750db8a.js": "3e76283035e5c77a393531edcc83f3f7de5e27a6",
+    "/fa/16.57e046702f6f372b126b.js": "14825820107071439f1fabbe22593ac9e57a3081",
+    "/fa/5.f65b5e8d62c40fa6be45.js": "b0952f33c65ba6f30b7bfe1a055ca31f95064425",
+    "/fa/6.369366f873c71174df9f.js": "87f6a907d219e631ede508b786cd3f91eb5e59fd",
+    "/fa/7.f4a43d655091caa40557.js": "1654306a436a6e363eb0e01aaf409162334fc95d",
+    "/fa/8.69b1b770401b9ba4ec31.js": "561bb9e765bc45927b768419debc4ff15b50c37a",
+    "/fa/9.1b22714038bafcb358a5.js": "1dc9dde9d83dd8127577e08bbc6cc42d1d9c2b55",
+    "/fa/assets/icons/Icon-ios-120.png": "925054d3615a817467daa98d558438c9f6793792",
+    "/fa/assets/icons/Icon-ios-180.png": "16bcbf0761b24ede334de06dbf56e1d19ce86767",
+    "/fa/assets/icons/icon-128x128.png": "32b38eaae1803bcbf78d5754dfc0b6ab80117057",
+    "/fa/assets/icons/icon-144x144.png": "816f21699954fa34a7ec5cf26cfaf859f5bfe920",
+    "/fa/assets/icons/icon-152x152.png": "2f20f35543d6022efd6a7e80b0c8714d46139088",
+    "/fa/assets/icons/icon-192x192.png": "444d4b2857ac8f73f9d129decb9ed658df7eaf73",
+    "/fa/assets/icons/icon-384x384.png": "a3ba87402a3c0728c6d36438d37243bb62a93cd9",
+    "/fa/assets/icons/icon-512x512.png": "b223748009761c970a54622d0d34ae4b40c4051e",
+    "/fa/assets/icons/icon-72x72.png": "89e1ad4408732309a9fba211b296cf63de9f5bc8",
+    "/fa/assets/icons/icon-96x96.png": "c20cd8f4356623226a7d17850e037a49cb375f0b",
+    "/fa/assets/logo.png": "546822b6c6595edcfe216d38ed874f3fc11f6bc4",
+    "/fa/assets/user.png": "f8e897fbf6ccda288d7982d9e85b6399d88cc91f",
+    "/fa/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/fa/index.html": "dcbc3171843df810148dcd90c7dc2f21747501b2",
+    "/fa/main.34ef77f77f67a85d5ec8.js": "c7f37090d99d99da28f670c4289cec84ee69727b",
+    "/fa/manifest.webmanifest": "4a3863d647f0578051700f4544ade06b4e6c5008",
+    "/fa/polyfills.bc81b60967a0367997af.js": "85eb8834bd17e0a19ff4607eb6ba1e7971434a23",
+    "/fa/runtime.a006f2ea8824fe7a33d9.js": "5912690a2280d43c5f6f566d768160d6a427ffda",
+    "/fa/scripts.8eab7bf9eb54559f7497.js": "46a354bf0752750715fb0b5359a9a15ac4eb9277",
+    "/fa/styles.c9b8498e3e120e1202b7.css": "6e1058f2f2987423fd9fb7d7c8dbfa00e646fd5f"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
