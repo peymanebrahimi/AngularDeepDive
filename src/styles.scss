@@ -32,7 +32,9 @@ label {
   margin-bottom: 0;
 }
 
- @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+//  @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+ @import "@progress/kendo-theme-material/dist/indigo-pink-light.css";
+//  @import "@progress/kendo-theme-material/dist/pink-bluegrey-dark.css";
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

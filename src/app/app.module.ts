@@ -16,6 +16,8 @@ import { MaterialModule } from "./material/material.module";
 import { NavbarComponent } from './navbar/navbar.component';
 import { NavsideComponent } from './navside/navside.component';
 import { metaReducers, reducers } from "./reducers";
+import { KendoModule } from "./kendo/kendo.module";
+
 
 
 @NgModule({
@@ -36,6 +38,7 @@ import { metaReducers, reducers } from "./reducers";
     EffectsModule.forRoot([]),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     RouterModule,
+    KendoModule
   ],
   providers: [
     {

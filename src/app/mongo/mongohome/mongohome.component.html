@@ -9,6 +9,13 @@
     <a class="mx-2 btn btn-secondary" mat-raised-button [routerLink]="['merge']"
         routerLinkActive="router-link-active">test</a>
     <a class="mx-2 btn btn-info" mat-raised-button [routerLink]="['merge']" routerLinkActive="router-link-active">test</a>
+
+
+    <p class="k-block">
+        <button kendoButton (click)="onButtonClick()" [primary]="true">Browse</button>
+        <button kendoButton (click)="onButtonClick()" [icon]="'folder'">Browse</button>
+        <button kendoButton (click)="onButtonClick()" [icon]="'folder'"></button>
+      </p>
 </nav>
 
 <!-- <nav class="nav">

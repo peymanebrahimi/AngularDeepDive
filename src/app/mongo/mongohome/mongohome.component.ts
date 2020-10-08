@@ -12,4 +12,6 @@ export class MongohomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onButtonClick(){}
+  
 }
