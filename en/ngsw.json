@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1602212874528,
+  "timestamp": 1602217734873,
   "index": "https://peymanebrahimi.github.io/AngularDeepDive/en/index.html",
   "assetGroups": [
     {
@@ -26,7 +26,7 @@
         "https://peymanebrahimi.github.io/AngularDeepDive/en/9.91d0626566888d502a5e.js",
         "https://peymanebrahimi.github.io/AngularDeepDive/en/favicon.ico",
         "https://peymanebrahimi.github.io/AngularDeepDive/en/index.html",
-        "https://peymanebrahimi.github.io/AngularDeepDive/en/main.c3e0b4f40e2078234aaa.js",
+        "https://peymanebrahimi.github.io/AngularDeepDive/en/main.44c2c7a94c4823a32251.js",
         "https://peymanebrahimi.github.io/AngularDeepDive/en/manifest.webmanifest",
         "https://peymanebrahimi.github.io/AngularDeepDive/en/polyfills.441825b1a2112fc881e5.js",
         "https://peymanebrahimi.github.io/AngularDeepDive/en/runtime.996867ddfce02ffaac22.js",
@@ -87,8 +87,8 @@
     "https://peymanebrahimi.github.io/AngularDeepDive/en/assets/logo.png": "546822b6c6595edcfe216d38ed874f3fc11f6bc4",
     "https://peymanebrahimi.github.io/AngularDeepDive/en/assets/user.png": "f8e897fbf6ccda288d7982d9e85b6399d88cc91f",
     "https://peymanebrahimi.github.io/AngularDeepDive/en/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://peymanebrahimi.github.io/AngularDeepDive/en/index.html": "f97f32c3a224c33b1721ea636e46efccc22e9f36",
-    "https://peymanebrahimi.github.io/AngularDeepDive/en/main.c3e0b4f40e2078234aaa.js": "e057e793872c1f07af928859c98f2cb59f5d947d",
+    "https://peymanebrahimi.github.io/AngularDeepDive/en/index.html": "585750f17916ce70c5715d08d696a207f8ff2542",
+    "https://peymanebrahimi.github.io/AngularDeepDive/en/main.44c2c7a94c4823a32251.js": "289094ede6e3077c97fbba23f0dc56de0d797dd7",
     "https://peymanebrahimi.github.io/AngularDeepDive/en/manifest.webmanifest": "4a3863d647f0578051700f4544ade06b4e6c5008",
     "https://peymanebrahimi.github.io/AngularDeepDive/en/polyfills.441825b1a2112fc881e5.js": "85eb8834bd17e0a19ff4607eb6ba1e7971434a23",
     "https://peymanebrahimi.github.io/AngularDeepDive/en/runtime.996867ddfce02ffaac22.js": "68b4812ce0e5891e6b56a3c27a33faaf4c70cece",
