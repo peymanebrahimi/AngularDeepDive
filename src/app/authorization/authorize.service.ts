@@ -187,14 +187,14 @@ export class AuthorizeService {
     const settings: any = {
       authority: environment.idsrvUrl, // + 'idsrv'
       client_id: 'angularClient',
-      redirect_uri: environment.appUrl + "/" + ApplicationPaths.LoginCallback,
+      redirect_uri: environment.loginUrl + ApplicationPaths.LoginCallback,
       // popup_redirect_uri: environment.myHost + '/callback.html',
-      post_logout_redirect_uri: environment.appUrl + "/" + ApplicationPaths.LogOutCallback,
+      post_logout_redirect_uri: environment.loginUrl + ApplicationPaths.LogOutCallback,
       response_type: 'code',
       scope: 'openid profile email angular.api',
 
       // silent_redirect_uri: environment.appUrl + '/silent-renew.html',
-      silent_redirect_uri: environment.appUrl + "/" + ApplicationPaths.LoginCallback,
+      silent_redirect_uri: environment.loginUrl + ApplicationPaths.LoginCallback,
       automaticSilentRenew: true, // default: false
       accessTokenExpiringNotificationTime: 60, // default: 60 seconds
       silentRequestTimeout: 5000, // default: 5000 milliseconds

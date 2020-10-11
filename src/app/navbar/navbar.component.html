@@ -4,7 +4,7 @@
         <button mat-icon-button (click)="onToggleSidenav()">
             <mat-icon>menu</mat-icon>
         </button>
-        <span style="cursor: pointer" [routerLink]="['/']"> Angular Deep Dive
+        <span style="cursor: pointer" [routerLink]="['/']" i18n="angularDeepDive"> Angular Deep Dive
             <!-- <a mat-button disableRipple routerLink="/">Angular Deep Dive</a> -->
         </span>
     </div>
@@ -14,26 +14,38 @@
     <!-- *ngIf="!(isSmallScreen$ | async)" -->
     <div *ngIf="!isSmallDevice">
 
-        <a mat-button routerLink="/mongo" routerLinkActive="active">mongo</a>
-        <a mat-button [matMenuTriggerFor]="menu">backapp</a>
-        <a mat-button routerLink="/ContentProjection" routerLinkActive="active">ContentProjection</a>
+        <a mat-button routerLink="/mongo" routerLinkActive="active" i18n="mongo">mongo</a>
+        <a mat-button [matMenuTriggerFor]="menu" i18n="backapp">backapp</a>
+        <a mat-button routerLink="/ContentProjection" routerLinkActive="active" i18n="ContentProjection">Content
+            Projection</a>
         <a mat-button routerLink="/ngTemplate" routerLinkActive="active">NgTemplate</a>
         <a mat-button routerLink="/reactive" routerLinkActive="active">Rxjs 6</a>
-        <a mat-button routerLink="/worldcity" routerLinkActive="active">World City</a>
-        <a mat-button routerLink="/health-check" routerLinkActive="active">Health Check</a>
+        <a mat-button routerLink="/worldcity" routerLinkActive="active" i18n="World City">World City</a>
+        <a mat-button routerLink="/health-check" routerLinkActive="active" i18n="Health Check">Health Check</a>
     </div>
 
     <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="/backapp/todo" routerLinkActive="active">ToDo</button>
-        <button mat-menu-item routerLink="/backapp/signalrchart" routerLinkActive="active">SignalR Chart</button>
-        <button mat-menu-item routerLink="/backapp/signalrnews" routerLinkActive="active">SignalR News</button>
+        <button mat-menu-item routerLink="/backapp/todo" routerLinkActive="active" i18n="ToDo">ToDo</button>
+        <button mat-menu-item routerLink="/backapp/signalrchart" routerLinkActive="active" i18n="SignalR Chart">SignalR
+            Chart</button>
+        <button mat-menu-item routerLink="/backapp/signalrnews" routerLinkActive="active" i18n="SignalR News">SignalR
+            News</button>
     </mat-menu>
 
     <span class="example-spacer"></span>
 
-    <button mat-icon-button>
-        <mat-icon>favorite</mat-icon>
+
+    <app-greeting [isSmallDevice]="isSmallDevice"></app-greeting>
+
+    <button mat-icon-button [matMenuTriggerFor]="langMenu">
+        <mat-icon>translate</mat-icon>
     </button>
+    <mat-menu #langMenu="matMenu">
+        <a *ngFor="let language of languageList" href="{{language.code}}">
+            <button mat-menu-item>{{language.label}}</button>
+        </a>
+    </mat-menu>
+
     <!-- <button mat-icon-button>
         <mat-icon>share</mat-icon>
     </button> -->
@@ -44,7 +56,7 @@
     <mat-menu #authMenu="matMenu">
         <button mat-menu-item *ngIf="!(isAuthenticated | async)" [routerLink]='["/authentication/login"]'>
             <mat-icon>fingerprint</mat-icon>
-            <span>Login</span>
+            <span i18n="login">Login</span>
         </button>
         <!-- <button mat-menu-item disabled>
             <mat-icon>announcement</mat-icon>
@@ -54,12 +66,14 @@
             <mat-icon>notifications_off</mat-icon>
             <span>هشدار</span>
         </button> -->
-        <button mat-menu-item *ngIf="isAuthenticated | async" [routerLink]='["/authentication/logout"]' [state]='{ local: true }'>
+        <button mat-menu-item *ngIf="isAuthenticated | async" [routerLink]='["/authentication/logout"]'
+            [state]='{ local: true }'>
             <mat-icon>power_settings_new </mat-icon>
-            <span>Logout</span>
+            <span i18n="logout">Logout</span>
         </button>
-        <button mat-menu-item *ngIf="isAuthenticated | async" [routerLink]='["/authentication/profile"]'>
-            Hello {{ userName | async }}
-        </button>
+        <!-- <button mat-menu-item *ngIf="isAuthenticated | async" [routerLink]='["/authentication/profile"]'>
+            <span i18n="hello">Hello</span> {{ userName | async }}
+        </button> -->
+        <app-greeting [isSmallDevice]="isSmallDevice" [isMenu]="true"></app-greeting>
     </mat-menu>
 </mat-toolbar>

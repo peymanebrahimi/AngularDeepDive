@@ -1,19 +1,22 @@
-<app-navbar [isSmallDevice]="isSmallDevice" (sidenavToggle)="sidenav.toggle()"></app-navbar>
+<div i18n-dir dir="ltr">
+  <app-navbar [isSmallDevice]="isSmallDevice" (sidenavToggle)="sidenav.toggle()"></app-navbar>
 
-<mat-sidenav-container class="example-container">
+  <mat-sidenav-container class="example-container">
 
-  <mat-sidenav #sidenav [mode]="isSmallDevice ? 'over' : 'side'">
-    <app-navside (sidenavClose)="sidenav.close()"></app-navside>
-  </mat-sidenav>
+    <mat-sidenav #sidenav [mode]="isSmallDevice ? 'over' : 'side'">
+      <app-navside (sidenavClose)="sidenav.close()"></app-navside>
+    </mat-sidenav>
 
-  <mat-sidenav-content>
+    <mat-sidenav-content>
 
-    <!-- <app-spinner name="major"></app-spinner>  -->
+      <!-- <app-spinner name="major"></app-spinner>  -->
 
-    <div class="container mt-2">
-      <router-outlet></router-outlet>
-    </div>
+      <div class="container mt-2">
+        <router-outlet></router-outlet>
+      </div>
 
-  </mat-sidenav-content>
+    </mat-sidenav-content>
 
-</mat-sidenav-container>
+  </mat-sidenav-container>
+
+</div>

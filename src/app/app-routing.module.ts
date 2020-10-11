@@ -32,7 +32,7 @@ const routes: Routes = [
     path: 'testing',
     loadChildren: () => import('./testing/testing.module').then(x => x.TestingModule)
   },
-  { path: "**", redirectTo: "", pathMatch: "full" }
+  // { path: "**", redirectTo: "", pathMatch: "full" }
 ];
 
 @NgModule({

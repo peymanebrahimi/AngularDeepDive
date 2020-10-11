@@ -5,6 +5,15 @@
   "projects": {
     "AngDeepDive": {
       "projectType": "application",
+      "i18n": {
+        "sourceLocale": "en",
+        "locales": {
+          "fa": {
+            "translation": "src/locale/messages.fa.xlf",
+            "baseHref": "/fa/"
+          }
+        }
+      },
       "schematics": {},
       "root": "",
       "sourceRoot": "src",
@@ -13,6 +22,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "localize": true,
             "outputPath": "dist/AngDeepDive/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -34,6 +44,11 @@
             ]
           },
           "configurations": {
+            "fa": {
+              "localize": [
+                "fa"
+              ]
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -72,6 +87,9 @@
             "browserTarget": "AngDeepDive:build"
           },
           "configurations": {
+            "fa": {
+              "browserTarget": "AngDeepDive:build:fa"
+            },
             "production": {
               "browserTarget": "AngDeepDive:build:production"
             }

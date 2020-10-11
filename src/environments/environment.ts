@@ -6,5 +6,6 @@ export const environment = {
     // idsrvUrl: 'https://angularidsrv4.herokuapp.com',
     // idsrvUrl: 'https://angularidsrv4.somee.com',
 
-    appUrl: window.location.origin
+    appUrl: window.location.origin,
+    loginUrl: window.location.origin+"/"
 };

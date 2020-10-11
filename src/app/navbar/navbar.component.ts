@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output, VERSION as angularVersion } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, LOCALE_ID, OnInit, Output, VERSION as angularVersion } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { VERSION as materialVersion } from '@angular/material/core';
 import { VERSION as cdkVersion } from '@angular/cdk';
 import { AuthorizeService } from '../authorization/authorize.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-navbar',
@@ -16,10 +17,10 @@ export class NavbarComponent implements OnInit {
   cdkVersion = cdkVersion;
   angularVersion = angularVersion
 
-  isSmallScreen$: Observable<boolean>;
+  // isSmallScreen$: Observable<boolean>;
 
   public isAuthenticated: Observable<boolean>;
-  public userName: Observable<string>;
+  // public userName: Observable<string>;
 
 
   @Output()
@@ -28,11 +29,17 @@ export class NavbarComponent implements OnInit {
   @Input()
   isSmallDevice = false;
 
+  languageList = [
+    { code: `${environment.appUrl}/en/`, label: 'English' },
+    { code: `${environment.appUrl}/fa/`, label: 'فارسی' }
+  ];
+
   constructor(private breakpointObserver: BreakpointObserver,
+    @Inject(LOCALE_ID) protected localeId: string,
     public auth: AuthorizeService) {
 
-    this.isSmallScreen$ = breakpointObserver.observe([Breakpoints.HandsetLandscape, Breakpoints.HandsetPortrait,])
-      .pipe(map(x => x.matches),)
+    // this.isSmallScreen$ = breakpointObserver.observe([Breakpoints.HandsetLandscape, Breakpoints.HandsetPortrait,])
+    //   .pipe(map(x => x.matches),);
 
     let isHandset: Observable<BreakpointState> = this.breakpointObserver.observe([Breakpoints.HandsetLandscape,
     Breakpoints.HandsetPortrait]);
@@ -47,7 +54,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.isAuthenticated = this.auth.isAuthenticated();
-    this.userName = this.auth.getUser().pipe(map(u => u && u.name));
+    // this.userName = this.auth.getUser().pipe(map(u => u && u.name));
   }
 
   onToggleSidenav() {

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="cb33b150a0b9e6b88a9aa5fa79f91888dd06784a" datatype="html">
+        <source>ltr</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.js</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8bf6f13d44fab6155ead9b654304fead928a8931" datatype="html">
+        <source> Angular Deep Dive </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navbar/navbar.component.js</context>
+          <context context-type="linenumber">143</context>
+        </context-group>
+        <note priority="1" from="description">angularDeepDive</note>
+      </trans-unit>
+      <trans-unit id="e7bcde92f831d2eba82ac73043dd2feb8daa3560" datatype="html">
+        <source>ToDo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navbar/navbar.component.js</context>
+          <context context-type="linenumber">152</context>
+        </context-group>
+        <note priority="1" from="description">ToDo</note>
+      </trans-unit>
+      <trans-unit id="4dd3c20456f20a8056f050962b27301e3fd75040" datatype="html">
+        <source>SignalR Chart</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navbar/navbar.component.js</context>
+          <context context-type="linenumber">161</context>
+        </context-group>
+        <note priority="1" from="description">SignalR Chart</note>
+      </trans-unit>
+      <trans-unit id="690c9dafead5592dfef3523f5cf8a08d6b367a54" datatype="html">
+        <source>SignalR News</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navbar/navbar.component.js</context>
+          <context context-type="linenumber">170</context>
+        </context-group>
+        <note priority="1" from="description">SignalR News</note>
+      </trans-unit>
+      <trans-unit id="a6e3a15f2050469bb594addd922c70cda89f01a5" datatype="html">
+        <source>mongo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navbar/navbar.component.js</context>
+          <context context-type="linenumber">179</context>
+        </context-group>
+        <note priority="1" from="description">mongo</note>
+      </trans-unit>
+      <trans-unit id="cc63209385e56c78c4bef5f0e2f5b3cfa7b84bc3" datatype="html">
+        <source>backapp</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navbar/navbar.component.js</context>
+          <context context-type="linenumber">188</context>
+        </context-group>
+        <note priority="1" from="description">backapp</note>
+      </trans-unit>
+      <trans-unit id="1e1f5cef51575ea5ef6637d9f9cfb91f73c259c7" datatype="html">
+        <source>Content Projection</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navbar/navbar.component.js</context>
+          <context context-type="linenumber">197</context>
+        </context-group>
+        <note priority="1" from="description">ContentProjection</note>
+      </trans-unit>
+      <trans-unit id="8b5538a6931bf5cbdf13dc7aec0b5116ad8cca79" datatype="html">
+        <source>World City</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navbar/navbar.component.js</context>
+          <context context-type="linenumber">206</context>
+        </context-group>
+        <note priority="1" from="description">World City</note>
+      </trans-unit>
+      <trans-unit id="8e36735fa096eef0ca7a9d57efba330732058d26" datatype="html">
+        <source>Health Check</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navbar/navbar.component.js</context>
+          <context context-type="linenumber">215</context>
+        </context-group>
+        <note priority="1" from="description">Health Check</note>
+      </trans-unit>
+      <trans-unit id="6765b4c916060f6bc42d9bb69e80377dbcb5e4e9" datatype="html">
+        <source>Login</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navbar/navbar.component.js</context>
+          <context context-type="linenumber">224</context>
+        </context-group>
+        <note priority="1" from="description">login</note>
+      </trans-unit>
+      <trans-unit id="bb694b49d408265c91c62799c2b3a7e3151c824d" datatype="html">
+        <source>Logout</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navbar/navbar.component.js</context>
+          <context context-type="linenumber">233</context>
+        </context-group>
+        <note priority="1" from="description">logout</note>
+      </trans-unit>
+      <trans-unit id="d076adbb3fab5be167493b385b0bab2e710998ed" datatype="html">
+        <source>Hello</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/navbar/navbar.component.js</context>
+          <context context-type="linenumber">242</context>
+        </context-group>
+        <note priority="1" from="description">hello</note>
+      </trans-unit>
+      <trans-unit id="9ceefaef379e7dd3b90769adf78bb62c4b5a994b" datatype="html">
+        <source>What needs to be done?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/backapp/todo/todo-list/todo-list.component.js</context>
+          <context context-type="linenumber">130</context>
+        </context-group>
+        <note priority="1" from="description">todoAsk</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

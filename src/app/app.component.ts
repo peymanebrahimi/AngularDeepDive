@@ -39,6 +39,9 @@ export class AppComponent {
           this.isSmallDevice = false;
         }
       });
+
+    // environment.loginUrl = window.location.href;
+    console.log("environment.loginUrl: ", environment.loginUrl);
   }
 
   ngOnInit() {

@@ -16,6 +16,7 @@ import { MaterialModule } from "./material/material.module";
 import { NavbarComponent } from './navbar/navbar.component';
 import { NavsideComponent } from './navside/navside.component';
 import { metaReducers, reducers } from "./reducers";
+import { GreetingComponent } from './greeting/greeting.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { metaReducers, reducers } from "./reducers";
     AppComponent,
     NavbarComponent,
     HealthCheckComponent,
-    NavsideComponent
+    NavsideComponent,
+    GreetingComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
