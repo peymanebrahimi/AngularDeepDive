@@ -44,6 +44,10 @@
             ]
           },
           "configurations": {
+            "en": {
+              "localize": ["en"]
+              // "baseHref": "/en/"
+            },
             "fa": {
               "localize": [
                 "fa"
@@ -87,6 +91,9 @@
             "browserTarget": "AngDeepDive:build"
           },
           "configurations": {
+            "en": {
+              "browserTarget": "AngDeepDive:build:en"
+            },
             "fa": {
               "browserTarget": "AngDeepDive:build:fa"
             },
