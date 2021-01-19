@@ -46,7 +46,6 @@
           "configurations": {
             "en": {
               "localize": ["en"]
-              // "baseHref": "/en/"
             },
             "fa": {
               "localize": [
