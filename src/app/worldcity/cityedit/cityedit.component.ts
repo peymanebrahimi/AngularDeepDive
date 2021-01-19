@@ -15,23 +15,25 @@ import { map } from 'rxjs/operators';
 })
 export class CityeditComponent implements OnInit {
 
-  title: string;
+  title?: string;
   form: FormGroup;
-  city: City;
+  city?: City;
   id?: number;
-  countries: Country[];
+  countries?: Country[];
 
   constructor(private activatedRoute: ActivatedRoute,
     private router: Router,
-    private http: HttpClient) { }
+    private http: HttpClient) { 
+      this.form = new FormGroup({
+        name: new FormControl('', [Validators.required]),
+        lat: new FormControl('', [Validators.required]),
+        lon: new FormControl('', [Validators.required]),
+        countryId: new FormControl('', [Validators.required])
+      }, null, this.isDupeCity());
+    }
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      name: new FormControl('', [Validators.required]),
-      lat: new FormControl('', [Validators.required]),
-      lon: new FormControl('', [Validators.required]),
-      countryId: new FormControl('', [Validators.required])
-    }, null, this.isDupeCity());
+   
 
     this.loadData();
   }
@@ -39,7 +41,7 @@ export class CityeditComponent implements OnInit {
   loadData() {
     this.loadCountries();
 
-    this.id = +this.activatedRoute.snapshot.paramMap.get('id');
+    this.id = +this.activatedRoute.snapshot.paramMap.get('id')!;
 
     if (this.id) {
       // edit mode
@@ -83,19 +85,19 @@ export class CityeditComponent implements OnInit {
   }
 
   onSubmit() {
-    var city = (this.id) ? this.city : <City>{};
+    const cityy = (this.id) ? this.city : <City>{};
 
-    city.name = this.form.get('name').value;
-    city.lat = this.form.get('lat').value;
-    city.lon = this.form.get('lon').value;
-    city.countryId = +this.form.get("countryId").value;
+    cityy!.name = this.form.get('name')!.value;
+    cityy!.lat = this.form.get('lat')!.value;
+    cityy!.lon = this.form.get('lon')!.value;
+    cityy!.countryId = +this.form.get("countryId")!.value;
 
     if (this.id) {
       // EDIT mode
-      var url = environment.serverUrl + "/api/cities/" + this.city.id;
-      this.http.put<City>(url, city)
+      var url = environment.serverUrl + "/api/cities/" + this.city!.id;
+      this.http.put<City>(url, cityy)
         .subscribe(result => {
-          console.log("City " + city.id + " has been updated.");
+          console.log("City " + cityy!.id + " has been updated.");
           // go back to cities view
           this.router.navigate(['../cities']);
         }, error => console.log(error));
@@ -103,7 +105,7 @@ export class CityeditComponent implements OnInit {
     else {
       // ADD NEW mode
       var url = environment.serverUrl + "/api/cities";
-      this.http.post<City>(url, city)
+      this.http.post<City>(url, cityy)
         .subscribe(result => {
           console.log("City " + result.id + " has been created.");
           // go back to cities view
@@ -118,10 +120,10 @@ export class CityeditComponent implements OnInit {
     } | null> => {
       var city = <City>{};
       city.id = (this.id) ? this.id : 0;
-      city.name = this.form.get("name").value;
-      city.lat = this.form.get("lat").value;
-      city.lon = this.form.get("lon").value;
-      city.countryId = +this.form.get("countryId").value;
+      city.name = this.form.get("name")!.value;
+      city.lat = this.form.get("lat")!.value;
+      city.lon = this.form.get("lon")!.value;
+      city.countryId = +this.form.get("countryId")!.value;
 
       var url = environment.serverUrl + "/api/cities/IsDupeCity";
 

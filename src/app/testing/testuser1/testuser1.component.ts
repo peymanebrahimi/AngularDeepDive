@@ -13,7 +13,7 @@ import { AuthorizeService } from "../../authorization/authorize.service";
 export class Testuser1Component implements OnInit {
   private _onDestroy = new Subject<void>();
 
-  public isAuthenticated: Observable<boolean>;
+  public isAuthenticated?: Observable<boolean>;
 
   constructor(private testService: TestService,
     public authService: AuthorizeService) { }

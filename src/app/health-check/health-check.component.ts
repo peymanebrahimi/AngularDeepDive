@@ -8,12 +8,12 @@ import { environment } from '../../environments/environment';
   styleUrls: ['./health-check.component.css']
 })
 export class HealthCheckComponent implements OnInit {
-  public result: Result;
+  public result?: Result;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get<Result>(environment.serverUrl+"/hc").subscribe(result => {
+    this.http.get<Result>(environment.serverUrl + "/hc").subscribe(result => {
       this.result = result;
     }, error => console.error(error));
   }

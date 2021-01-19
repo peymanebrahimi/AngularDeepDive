@@ -8,7 +8,7 @@ import { Component, OnInit, ContentChild, AfterViewInit, ElementRef, AfterConten
 export class CourseCard1Component implements OnInit, AfterViewInit, AfterContentInit {
 
   @ContentChild('titleContent')
-  content1;
+  content1: any;
 
   ngAfterContentInit(): void {
     console.info('content1: ', this.content1); // the earleast moment the content is filled

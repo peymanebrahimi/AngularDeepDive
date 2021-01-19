@@ -13,18 +13,18 @@ export class TodoService {
 
   }
 
-  deleteTodoDetail(id){
+  // deleteTodoDetail((id:any)){
 
-  }
+  // }
 
-  updateTodo(){
+  // updateTodo(){
 
-  }
+  // }
 
-  toggleTodoComplete(todo: Todo){
-    // let updatedTodo = this.updateTodoById(todo.id, {
-    //   complete: !todo.complete
-    // });
-    // return updatedTodo;
-  }
+  // toggleTodoComplete(todo: Todo){
+  //   // let updatedTodo = this.updateTodoById(todo.id, {
+  //   //   complete: !todo.complete
+  //   // });
+  //   // return updatedTodo;
+  // }
 }

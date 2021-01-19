@@ -12,9 +12,9 @@
 
         <mat-form-field class="col-12">
             <input matInput formControlName="name" placeholder="name">
-            <mat-error *ngIf="form.get('name').invalid &&
-            (form.get('name').dirty || form.get('name').touched)">
-                <div *ngIf="form.get('name').errors?.required">
+            <mat-error *ngIf="form.get('name')!.invalid &&
+            (form.get('name')!.dirty || form.get('name')!.touched)">
+                <div *ngIf="form.get('name')!.errors?.required">
                     Name is required.
                 </div>
             </mat-error>
@@ -22,9 +22,9 @@
 
         <mat-form-field class="col-12">
             <input matInput formControlName="lat" placeholder="city latitude">
-            <mat-error *ngIf="form.get('lat').invalid &&
-            (form.get('lat').dirty || form.get('lat').touched)">
-                <div *ngIf="form.get('lat').errors?.required">
+            <mat-error *ngIf="form.get('lat')!.invalid &&
+            (form.get('lat')!.dirty || form.get('lat')!.touched)">
+                <div *ngIf="form.get('lat')!.errors?.required">
                     Latitude is required.
                 </div>
             </mat-error>
@@ -32,9 +32,9 @@
 
         <mat-form-field class="col-12">
             <input matInput formControlName="lon" placeholder="city longitude">
-            <mat-error *ngIf="form.get('lon').invalid &&
-            (form.get('lon').dirty || form.get('lon').touched)">
-                <div *ngIf="form.get('lon').errors?.required">
+            <mat-error *ngIf="form.get('lon')!.invalid &&
+            (form.get('lon')!.dirty || form.get('lon')!.touched)">
+                <div *ngIf="form.get('lon')!.errors?.required">
                     Longitude is required.
                 </div>
             </mat-error>
@@ -48,9 +48,9 @@
                     {{country.name}}
                 </mat-option>
             </mat-select>
-            <mat-error *ngIf="form.get('countryId').invalid &&
-            (form.get('countryId').dirty || form.get('countryId').touched)">
-                <div *ngIf="form.get('countryId').errors?.required">
+            <mat-error *ngIf="form.get('countryId')!.invalid &&
+            (form.get('countryId')!.dirty || form.get('countryId')!.touched)">
+                <div *ngIf="form.get('countryId')!.errors?.required">
                     Country is required.
                 </div>
             </mat-error>

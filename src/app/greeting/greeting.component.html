@@ -4,8 +4,8 @@
     </button>
 </ng-container>
 
-<ng-template #toolbarBlock >
-    <div *ngIf="!isSmallDevice && isAuthenticated$ | async" >
+<ng-template #toolbarBlock>
+    <div *ngIf="!isSmallDevice && (isAuthenticated$ | async)">
         <span i18n="hello">Hello</span> {{ userName$ | async }}
     </div>
 </ng-template>

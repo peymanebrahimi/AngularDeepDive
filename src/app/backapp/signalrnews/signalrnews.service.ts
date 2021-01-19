@@ -14,7 +14,7 @@ import { of } from 'rxjs';
   providedIn: 'root'
 })
 export class SignalrnewsService {
-  private hubConnection: signalR.HubConnection;
+  private hubConnection!: signalR.HubConnection;
 
   constructor(private http: HttpClient,
     private authService: AuthorizeService,

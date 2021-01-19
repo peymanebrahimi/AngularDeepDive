@@ -1,11 +1,11 @@
-<div style="display: block" *ngIf='(signalRService.data$ | async) as data1'>
-    <canvas baseChart [datasets]="data1" [labels]="chartLabels" [options]="chartOptions" [legend]="chartLegend"
+<div style="display: block" *ngIf='(signalRService.data$ | async) as dataset'>
+    <canvas baseChart [datasets]="dataset" [labels]="chartLabels" [options]="chartOptions" [legend]="chartLegend"
         [chartType]="chartType" [colors]="colors" (chartClick)="chartClicked($event)"></canvas>
 </div>
 <br><br>
 <ul>
-    <li *ngFor='let data of signalRService.bradcastedData'>
-        <strong>Label: </strong> {{data.label}} - <strong>Value: </strong> {{data.data[0]}}
+    <li *ngFor='let model of (signalRService.data$ | async)'>
+        <strong>Label: </strong> {{model.label}} - <strong>Value: </strong> {{model.data}}
     </li>
 </ul>
 <mat-divider></mat-divider>

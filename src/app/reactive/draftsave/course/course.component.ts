@@ -18,17 +18,19 @@ export class CourseComponent implements OnInit, AfterViewInit {
 
   courseId: number;
 
-  course$: Observable<Course>;
-  lessons$: Observable<Lesson[]>;
+  course$?: Observable<Course>;
+  lessons$?: Observable<Lesson[]>;
 
   @ViewChild('searchInput')
-  input: ElementRef;
+  input!: ElementRef;
 
   constructor(private route: ActivatedRoute,
-    private courseService: CourseService) { }
+    private courseService: CourseService) { 
+      this.courseId = this.route.snapshot.params['id'];
+    }
 
   ngOnInit(): void {
-    this.courseId = this.route.snapshot.params['id'];
+    
     this.course$ = this.courseService.getCourse(this.courseId);
 
   }

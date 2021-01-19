@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
 
   // isSmallScreen$: Observable<boolean>;
 
-  public isAuthenticated: Observable<boolean>;
+  public isAuthenticated!: Observable<boolean>;
   // public userName: Observable<string>;
 
 

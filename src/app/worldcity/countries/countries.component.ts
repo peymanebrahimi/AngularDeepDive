@@ -3,7 +3,7 @@ import { environment } from 'src/environments/environment';
 import { MatTableDataSource } from '@angular/material/table';
 import { Country } from "../country";
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
+import { MatSort, SortDirection } from '@angular/material/sort';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Component({
@@ -18,17 +18,17 @@ export class CountriesComponent implements OnInit {
   defaultPageIndex: number = 0;
   defaultPageSize: number = 10;
   defaultSortColumn: string = "name";
-  defaultSortOrder: string = "asc";
+  defaultSortOrder: SortDirection = "asc";
   defaultFilterColumn: string = "name";
-  filterQuery: string = null;
+  filterQuery: string | null = null;
 
   countries = new MatTableDataSource<Country>();
 
   displayedColumns: string[] = ['id', 'name', 'iso2', 'iso3'];
 
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
 
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private http: HttpClient) { }
 
@@ -36,12 +36,12 @@ export class CountriesComponent implements OnInit {
     this.loadData();
   }
 
-  loadData(query: string = null): void {
+  loadData(query: KeyboardEvent | null = null): void {
     let pageEvent = new PageEvent();
     pageEvent.pageIndex = this.defaultPageIndex;
     pageEvent.pageSize = this.defaultPageSize;
-    if (query) {
-      this.filterQuery = query;
+    if (query != null) {
+      this.filterQuery = (<HTMLInputElement>query.target).value;
     }
     this.getData(pageEvent);
   }
@@ -56,7 +56,7 @@ export class CountriesComponent implements OnInit {
     if (this.filterQuery) {
       params = params
         .set("filterColumn", this.defaultFilterColumn)
-        .set("filterQuery", this.filterQuery);
+        .set("filterQuery", this.filterQuery!);
     }
 
     this.http.get<any>(this.url, { params })

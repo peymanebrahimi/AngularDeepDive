@@ -12,8 +12,8 @@ import { debounceTime, filter, distinctUntilChanged, tap } from 'rxjs/operators'
 })
 export class TodoListComponent implements OnInit, AfterViewInit {
 
-  todos$: Observable<Todo>;
-  selectedRow = -1;
+  todos$?: Observable<Todo>;
+  selectedRow: number | null = -1;
 
   todos: Todo[] = [
     { todoDescription: "c#", userObjectId: "", finished: false },
@@ -23,7 +23,7 @@ export class TodoListComponent implements OnInit, AfterViewInit {
   ];
 
   @ViewChild('input')
-  input: ElementRef
+  input!: ElementRef
 
   constructor(private router: Router, private todoService: TodoService) { }
 
@@ -34,7 +34,8 @@ export class TodoListComponent implements OnInit, AfterViewInit {
     fromEvent(this.input.nativeElement, 'keyup')
       .pipe(
         // debounceTime(150),
-        filter((e: KeyboardEvent) => e.keyCode === 13),
+        // filter((e: KeyboardEvent) => e.keyCode === 13),
+        filter((e: any) => e.keyCode === 13),
         filter(() => !!this.input.nativeElement.value),
         distinctUntilChanged(),
         tap(() => {
@@ -54,7 +55,7 @@ export class TodoListComponent implements OnInit, AfterViewInit {
       .subscribe();
   }
 
-  onClickEditTodoDetail(id) {
+  onClickEditTodoDetail(id: any) {
     // this.router.navigate(['/todo-detail'], {queryParams:{id:id}});
   }
 
@@ -62,7 +63,7 @@ export class TodoListComponent implements OnInit, AfterViewInit {
     // this.router.navigate(['/todo-detail']);
   }
 
-  onClickTodoDelete(id) {
+  onClickTodoDelete(id: any) {
     // this.todoService.deleteTodoDetail(id);
     // this.loadAllTodoList();
   }
@@ -72,7 +73,7 @@ export class TodoListComponent implements OnInit, AfterViewInit {
     console.log(todo);
   }
 
-  removeTodo(todo: Todo) { 
+  removeTodo(todo: Todo) {
 
   }
 

@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./mergehome.component.css']
 })
 export class MergehomeComponent implements OnInit {
-  sub: Subscription;
+  sub?: Subscription;
 
   constructor() { }
 

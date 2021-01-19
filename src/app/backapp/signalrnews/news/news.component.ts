@@ -19,8 +19,8 @@ import { allNewsItemsSelect } from '../news.selectors';
 export class NewsComponent implements OnInit {
   group = 'IT';
   author = '';
-  newsItems$: Observable<NewsItem[]>;
-  groups$: Observable<string[]>;
+  newsItems$?: Observable<NewsItem[]>;
+  groups$?: Observable<string[]>;
   newsItem: NewsItem;
 
 
@@ -38,7 +38,7 @@ export class NewsComponent implements OnInit {
     this.newsItems$ = this.store.select(allNewsItemsSelect);
     // this.store.dispatch(fromActions.getAllGroupsAction());
     this.groups$ = this.route.data.pipe(
-      map((data: { groups: string[] }) => data.groups)
+      map((data: { groups?: string[] }) => data.groups!)
     );
   }
 

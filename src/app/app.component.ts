@@ -15,11 +15,11 @@ import { PromptUpdateService } from "./_services/prompt-update.service";
 })
 export class AppComponent {
   title = 'AngDeepDive';
-  loading$: Observable<boolean>;
+  // loading$: Observable<boolean>;
   isSmallDevice = false;
 
   @ViewChild(MatSidenav, { static: false })
-  sidenav: MatSidenav;
+  sidenav!: MatSidenav;
 
   private _onDestroy = new Subject<void>();
 

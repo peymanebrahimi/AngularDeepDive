@@ -12,14 +12,16 @@ export class NavsideComponent implements OnInit {
 
   public isAuthenticated: Observable<boolean>;
   public userName: Observable<string>;
-  
+
   constructor(
     public auth: AuthorizeService
-    ) { }
+  ) {
+    this.isAuthenticated = this.auth.isAuthenticated();
+    this.userName = this.auth.getUser().pipe(map((u: any) => u && u.name));
+  }
 
   ngOnInit(): void {
-    this.isAuthenticated = this.auth.isAuthenticated();
-    this.userName = this.auth.getUser().pipe(map(u => u && u.name));
+
   }
 
 }

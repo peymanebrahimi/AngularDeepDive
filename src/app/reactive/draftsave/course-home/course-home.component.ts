@@ -11,9 +11,9 @@ import { shareReplay, filter, map, finalize } from 'rxjs/operators';
 })
 export class CourseHomeComponent implements OnInit {
 
-  beginnerCourses$: Observable<Course[]>;
+  beginnerCourses$?: Observable<Course[]>;
 
-  advancedCourses$: Observable<Course[]>;
+  advancedCourses$?: Observable<Course[]>;
 
   constructor(private courseService: CourseService) { }
 

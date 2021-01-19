@@ -14,17 +14,17 @@ import { CourseService } from '../course.service';
   styleUrls: ['./course-dialog.component.css']
 })
 export class CourseDialogComponent implements OnInit {
-  url = environment.serverUrl+'/api';
+  url = environment.serverUrl + '/api';
 
   form: FormGroup;
 
   course: Course;
 
   @ViewChild('saveButton')
-  saveButton: ElementRef;
+  saveButton!: ElementRef;
 
   @ViewChild('searchInput')
-  searchInput: ElementRef;
+  searchInput!: ElementRef;
 
   constructor(
     private fb: FormBuilder,
@@ -63,7 +63,7 @@ export class CourseDialogComponent implements OnInit {
       .subscribe(console.log)
   }
 
-  saveCourse(changes) {
+  saveCourse(changes: any) {
     changes.id = this.course.id;
     changes.lessonsCount = this.course.lessonsCount;
     changes.courseListIcon = this.course.courseListIcon;

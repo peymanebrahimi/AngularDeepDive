@@ -2,7 +2,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSelectChange } from '@angular/material/select';
-import { MatSort } from '@angular/material/sort';
+import { MatSort, SortDirection } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { fromEvent, merge, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
@@ -29,9 +29,9 @@ export class SaleListComponent implements OnInit {
   defaultPageIndex: number = 0;
   defaultPageSize: number = 10;
   defaultSortColumn: string = "id";
-  defaultSortOrder: string = "asc";
+  defaultSortOrder: SortDirection = 'asc';
   filterColumn: string = "customer.email";
-  filterQuery: string = null;
+  filterQuery!: string ;
 
   dataSource = new MatTableDataSource<Sale>();
 
@@ -39,13 +39,13 @@ export class SaleListComponent implements OnInit {
 
   selectedFilter = this.displayedColumns[0];
 
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
 
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort) sort!: MatSort;
 
-  @ViewChild('input') input: ElementRef;
+  @ViewChild('input') input!: ElementRef;
 
-  expandedElement: Sale | null;
+  expandedElement!: Sale ;
 
   constructor(private supplystoreService: SupplystoreService) { }
 

@@ -9,13 +9,13 @@ import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';
   providedIn: 'root'
 })
 export class SignalrchartService {
-  public data: ChartModel[];
-  public bradcastedData: ChartModel[];
+  public data?: ChartModel[];
+  public bradcastedData?: ChartModel[];
 
   private hubConnection: signalR.HubConnection;
-  private chartSubject = new Subject<ChartModel>();
+  private chartSubject = new Subject<ChartModel[]>();
 
-  data$ = this.chartSubject.asObservable();
+  data$:Observable<ChartModel[]> = this.chartSubject.asObservable();
 
   constructor(private snackBar: MatSnackBar) {
     this.hubConnection = new signalR.HubConnectionBuilder()

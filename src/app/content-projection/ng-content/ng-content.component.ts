@@ -9,16 +9,16 @@ import { CourseCard1Component } from '../course-card1/course-card1.component';
 export class NgContentComponent implements OnInit, AfterViewInit {
 
   @ViewChild('card1')
-  card1: CourseCard1Component;
+  card1!: CourseCard1Component;
 
   @ViewChild('card1', { read: ElementRef })
-  card2: ElementRef;
+  card2!: ElementRef;
 
   @ViewChildren(CourseCard1Component)
-  cards: QueryList<CourseCard1Component>;
+  cards!: QueryList<CourseCard1Component>;
 
   @ViewChildren(CourseCard1Component, { read: ElementRef })
-  cards2: QueryList<CourseCard1Component>;
+  cards2!: QueryList<CourseCard1Component>;
 
   constructor() { }
 

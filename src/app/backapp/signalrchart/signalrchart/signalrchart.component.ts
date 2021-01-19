@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { SignalrchartService } from "../signalrchart.service";
 import { environment } from 'src/environments/environment';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ChartType } from 'chart.js';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class SignalrchartComponent implements OnInit {
     // }
   };
   public chartLabels: string[] = ['Real time data for the chart'];
-  public chartType: string = 'bar';
+  public chartType: ChartType = 'bar';
   public chartLegend: boolean = true;
   public colors: any[] = [{ backgroundColor: '#5491DA' },
   { backgroundColor: '#E74C3C' }, { backgroundColor: '#82E0AA' },
@@ -52,7 +53,7 @@ export class SignalrchartComponent implements OnInit {
       })
   }
 
-  public chartClicked = (event) => {
+  public chartClicked = (event: any) => {
     console.log(event);
     this.signalRService.broadcastChartData();
   }

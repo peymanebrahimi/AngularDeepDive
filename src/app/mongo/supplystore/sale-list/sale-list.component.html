@@ -8,8 +8,8 @@
 </mat-form-field>
 
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort matSortActive="{{defaultSortColumn}}"
-    matSortDirection="{{defaultSortOrder}}" multiTemplateDataRows>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort [matSortActive]="defaultSortColumn"
+    [matSortDirection]="defaultSortOrder" multiTemplateDataRows>
 
     <ng-container matColumnDef="customer.email">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>

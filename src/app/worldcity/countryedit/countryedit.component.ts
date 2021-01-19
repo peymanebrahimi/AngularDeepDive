@@ -14,43 +14,45 @@ import { map } from 'rxjs/operators';
 })
 export class CountryeditComponent implements OnInit {
 
-  title: string;
+  title?: string;
   form: FormGroup;
-  country: Country;
+  country?: Country;
   id?: number;
 
   constructor(private fb: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private http: HttpClient,) { }
+    private http: HttpClient,) {
+      this.form = this.fb.group({
+        name: ['',
+          Validators.required,
+          this.isDupeField("name")
+        ],
+        iso2: ['',
+          [
+            Validators.required,
+            Validators.pattern('[a-zA-Z]{2}')
+          ],
+          this.isDupeField("iso2")
+        ],
+        iso3: ['',
+          [
+            Validators.required,
+            Validators.pattern('[a-zA-Z]{3}')
+          ],
+          this.isDupeField("iso3")
+        ]
+      });
+     }
 
   ngOnInit(): void {
-    this.form = this.fb.group({
-      name: ['',
-        Validators.required,
-        this.isDupeField("name")
-      ],
-      iso2: ['',
-        [
-          Validators.required,
-          Validators.pattern('[a-zA-Z]{2}')
-        ],
-        this.isDupeField("iso2")
-      ],
-      iso3: ['',
-        [
-          Validators.required,
-          Validators.pattern('[a-zA-Z]{3}')
-        ],
-        this.isDupeField("iso3")
-      ]
-    });
+    
     this.loadData();
   }
 
   loadData() {
     // retrieve the ID from the 'id'
-    this.id = +this.activatedRoute.snapshot.paramMap.get('id');
+    this.id = +this.activatedRoute.snapshot.paramMap.get('id')!;
     if (this.id) {
       // EDIT MODE
       // fetch the country from the server
@@ -59,7 +61,7 @@ export class CountryeditComponent implements OnInit {
         this.country = result;
         this.title = "Edit - " + this.country.name;
         // update the form with the country value
-        this.form.patchValue(this.country);
+        this.form!.patchValue(this.country);
       }, error => console.error(error));
     }
     else {
@@ -71,16 +73,16 @@ export class CountryeditComponent implements OnInit {
 
   onSubmit() {
     var country = (this.id) ? this.country : <Country>{};
-    country.name = this.form.get("name").value;
-    country.iso2 = this.form.get("iso2").value;
-    country.iso3 = this.form.get("iso3").value;
+    country!.name = this.form.get("name")!.value;
+    country!.iso2 = this.form.get("iso2")!.value;
+    country!.iso3 = this.form.get("iso3")!.value;
     if (this.id) {
       // EDIT mode
-      var url = environment.serverUrl + "/api/countries/" + this.country.id;
+      var url = environment.serverUrl + "/api/countries/" + this.country!.id;
       this.http
         .put<Country>(url, country)
         .subscribe(result => {
-          console.log("Country " + country.id + " has been updated.");
+          console.log("Country " + country!.id + " has been updated.");
           // go back to cities view
           this.router.navigate(['/countries']);
         }, error => console.log(error));

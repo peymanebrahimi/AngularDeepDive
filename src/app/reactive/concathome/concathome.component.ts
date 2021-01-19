@@ -7,7 +7,7 @@ import { of, concat, Subscription } from 'rxjs';
   styleUrls: ['./concathome.component.css']
 })
 export class ConcathomeComponent implements OnInit, OnDestroy {
-  sub: Subscription;
+  sub?: Subscription;
 
   constructor() { }
 

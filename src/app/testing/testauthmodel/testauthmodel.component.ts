@@ -11,7 +11,7 @@ import { TestService } from "../test.service";
 export class TestauthmodelComponent implements OnInit {
   private _onDestroy = new Subject<void>();
   
-  authModel;
+  authModel: any;
 
   constructor(private testService:TestService) { }
 

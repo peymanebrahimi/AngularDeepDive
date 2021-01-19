@@ -4,7 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { City } from '../city';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
+import { MatSort, SortDirection } from '@angular/material/sort';
 
 @Component({
   selector: 'app-cities',
@@ -17,19 +17,19 @@ export class CitiesComponent implements OnInit {
   defaultPageIndex: number = 0;
   defaultPageSize: number = 10;
   defaultSortColumn: string = "name";
-  defaultSortOrder: string = "asc";
+  defaultSortOrder: SortDirection = "asc";
   defaultFilterColumn: string = "name";
-  filterQuery: string = null;
+  filterQuery:string|null = null;
 
   // cities: MatTableDataSource<City>;
   cities = new MatTableDataSource<City>();
 
   displayedColumns: string[] = ['id', 'name', 'lat', 'lon'];
 
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   // @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private http: HttpClient) { }
 
@@ -37,12 +37,12 @@ export class CitiesComponent implements OnInit {
     this.loadData();
   }
 
-  loadData(query: string = null): void {
+  loadData(query: KeyboardEvent | null = null): void {
     let pageEvent = new PageEvent();
     pageEvent.pageIndex = this.defaultPageIndex;
     pageEvent.pageSize = this.defaultPageSize;
     if (query) {
-      this.filterQuery = query;
+      this.filterQuery = (<HTMLInputElement>query.target).value;;
     }
     this.getData(pageEvent);
   }
@@ -57,7 +57,7 @@ export class CitiesComponent implements OnInit {
       if (this.filterQuery) {
         params = params
         .set("filterColumn", this.defaultFilterColumn)
-        .set("filterQuery", this.filterQuery);
+        .set("filterQuery", this.filterQuery!);
         }
         
     this.http.get<any>(this.url, { params })

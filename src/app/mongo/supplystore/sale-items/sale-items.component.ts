@@ -9,7 +9,7 @@ import { Item } from '../models/sale';
 export class SaleItemsComponent implements OnInit {
 
   @Input()
-  items: Item[];
+  items!: Item[];
 
   displayedColumns: string[] = ['name', 'price', 'quantity', 'cost', 'tags'];
   displayedColumnsFooter: string[] = ['name', 'price', 'quantity', 'cost', 'tags'];

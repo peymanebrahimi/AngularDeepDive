@@ -11,7 +11,7 @@ import { AuthorizeService } from '../authorization/authorize.service';
 export class GreetingComponent implements OnInit {
 
   @Input()
-  isSmallDevice: boolean;
+  isSmallDevice?: boolean;
 
   @Input()
   isMenu = false;
@@ -19,11 +19,13 @@ export class GreetingComponent implements OnInit {
   isAuthenticated$: Observable<boolean>;
   userName$: Observable<string>;
 
-  constructor(public auth: AuthorizeService) { }
+  constructor(public auth: AuthorizeService) {
+    this.isAuthenticated$ = this.auth.isAuthenticated();
+    this.userName$ = this.auth.getUser().pipe(map((u:any) => u && u.name));
+   }
 
   ngOnInit(): void {
-    this.isAuthenticated$ = this.auth.isAuthenticated();
-    this.userName$ = this.auth.getUser().pipe(map(u => u && u.name));
+   
   }
 
 }
